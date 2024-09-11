@@ -20,7 +20,7 @@ import icon10 from '@/assets/icons/react.svg'
 import icon11 from '@/assets/icons/sass.svg'
 import icon16 from '@/assets/icons/vercel.svg'
 // Export all SVG files
-export const svgFiles = {
+export const svgIcons = {
   icon1,
   icon2,
   icon3,
