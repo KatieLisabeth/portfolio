@@ -1,85 +1,112 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import HomeView from './views/HomeView.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+    <div>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <!-- Use hash-based scrolling for internal sections -->
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <main>
+    <!-- Different sections for each part of the page -->
+    <section id="home" class="section">
+      <h1>Home Section</h1>
+      <p>This is the home section content.</p>
+      <HomeView />
+    </section>
+
+    <section id="about" class="section">
+      <h1>About Section</h1>
+      <p>This is the about section content.</p>
+    </section>
+
+    <section id="services" class="section">
+      <h1>Services Section</h1>
+      <p>This is the services section content.</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h1>Contact Section</h1>
+      <p>This is the contact section content.</p>
+    </section>
+  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+/* Basic styles for sections and smooth scrolling */
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for all anchor links */
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  display: flex;
+  justify-content: center;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-nav a:first-of-type {
-  border: 0;
+nav a:hover {
+  color: #007bff;
+}
+
+main {
+  padding-top: 80px; /* Offset for fixed header */
+}
+
+.section {
+  min-height: 100vh; /* Full-screen sections */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.section:nth-of-type(odd) {
+  background-color: #f5f5f5;
+}
+
+.section:nth-of-type(even) {
+  background-color: #e9ecef;
 }
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
-    place-items: center;
     padding-right: calc(var(--section-gap) / 2);
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  nav a {
+    margin: 0 2rem;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  .section {
+    padding: 8rem 1rem;
   }
 }
 </style>
