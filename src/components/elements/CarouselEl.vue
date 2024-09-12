@@ -17,7 +17,6 @@
 import { defineComponent, onBeforeUnmount, onMounted, ref, type PropType } from 'vue'
 
 export default defineComponent({
-  name: 'MovingCarousel',
   props: {
     images: {
       type: Array as PropType<string[]>,

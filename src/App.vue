@@ -1,26 +1,12 @@
-<script setup lang="ts">
-import HomeView from './views/HomeView.vue'
-</script>
-
 <template>
-  <header>
-    <div>
-      <nav>
-        <!-- Use hash-based scrolling for internal sections -->
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header :style="{ backgroundColor: currentTheme.secondary, color: currentTheme.text }">
+    <NavBar :isDarkTheme="isDarkTheme" @updateTheme="updateTheme" />
   </header>
 
   <main>
-    <!-- Different sections for each part of the page -->
     <section id="home" class="section">
-      <h1>Home Section</h1>
-      <p>This is the home section content.</p>
-      <HomeView />
+      <HomeView :themeTextColor="currentTheme.text" />
+      <MouseEl v-if="showScrollAnimation" />
     </section>
 
     <section id="about" class="section">
@@ -40,73 +26,60 @@ import HomeView from './views/HomeView.vue'
   </main>
 </template>
 
+<script setup lang="ts">
+import MouseEl from '@/components/elements/MouseEl.vue'
+import NavBar from '@/components/navigation/NavBar.vue'
+import { useScroll } from '@/utils/useScroll'
+import { storeToRefs } from 'pinia'
+import { defineAsyncComponent, ref, watch } from 'vue'
+import { useThemeStore } from './store'
+
+// Lazy-loaded components
+const HomeView = defineAsyncComponent(() => import('@/views/HomeView.vue'))
+
+const themeStore = useThemeStore()
+const { currentTheme } = storeToRefs(themeStore)
+
+const isDarkTheme = ref(currentTheme.value === themeStore.themes.dark)
+
+watch(currentTheme, (newTheme) => {
+  isDarkTheme.value = newTheme === themeStore.themes.dark
+  document.body.style.backgroundColor = newTheme.primary
+  document.body.style.color = newTheme.text
+})
+
+// Toggle theme handler
+const updateTheme = () => {
+  themeStore.toggleTheme()
+}
+
+// Use composable to handle scroll and section visibility
+const { showScrollAnimation } = useScroll(['home'])
+</script>
+
 <style scoped>
-/* Basic styles for sections and smooth scrolling */
 html {
-  scroll-behavior: smooth; /* Smooth scrolling for all anchor links */
+  scroll-behavior: smooth;
 }
 
 header {
-  position: fixed;
   width: 100%;
-  top: 0;
   z-index: 1000;
-  background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-}
-
-nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #007bff;
-}
-
-main {
-  padding-top: 80px; /* Offset for fixed header */
+  margin-bottom: 30px;
 }
 
 .section {
-  min-height: 100vh; /* Full-screen sections */
+  width: 100vw;
+  height: 100vh;
   padding: 4rem 1rem;
   text-align: center;
 }
 
 .section:nth-of-type(odd) {
-  background-color: #f5f5f5;
+  background-color: transparent;
 }
 
 .section:nth-of-type(even) {
-  background-color: #e9ecef;
-}
-
-@media (min-width: 1024px) {
-  header {
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  nav a {
-    margin: 0 2rem;
-  }
-
-  .section {
-    padding: 8rem 1rem;
-  }
+  background-color: transparent;
 }
 </style>

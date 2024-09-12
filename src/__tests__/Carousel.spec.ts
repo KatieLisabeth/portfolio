@@ -1,4 +1,4 @@
-import MovingCarousel from '@/components/Carousel.vue'
+import MovingCarousel from '@/components/elements/CarouselEl.vue'
 import { svgIcons } from '@/mixins/icons'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
