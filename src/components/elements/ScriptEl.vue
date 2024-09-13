@@ -10,23 +10,14 @@
 <script setup lang="ts">
 import { useThemeStore } from '@/store'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-
 const themeStore = useThemeStore()
 
-// Define the words array
 const words = [
-  'I love coding',
-  'Creating responsive user-friendly websites',
-  'Animating and styling to bring ideas to life.',
-  'Enjoying the power of frontend frameworks',
-  'and',
-  'logic behind backend structure',
-  'Learning never stops',
-  'AND',
-  "It's fascinating"
+  "Hello, I'm Katie, a passionate developer with a deep love for coding",
+  'I specialize in creating responsive, user-friendly websites, seamlessly blending animation and design to bring ideas to life.',
+  "I thrive on harnessing the power of frontend frameworks and backend logic, and I'm driven by the endless opportunities for learning and growth in the tech world.",
 ]
 
-// Reactive variables
 const currentWordIndex = ref(0) // Tracks the current word index
 const displayedText = ref('') // Displays the typing effect text
 let typingInterval: number | undefined
@@ -36,7 +27,6 @@ let deletingInterval: number | undefined
 const typeLetters = (word: string) => {
   let currentLetterIndex = 0
   displayedText.value = ''
-
   if (typingInterval) clearInterval(typingInterval)
   typingInterval = window.setInterval(() => {
     if (currentLetterIndex < word.length) {
@@ -52,7 +42,6 @@ const typeLetters = (word: string) => {
 // Letter wiping effect
 const deleteLetters = (word: string) => {
   let currentLetterIndex = word.length
-
   if (deletingInterval) clearInterval(deletingInterval)
   deletingInterval = window.setInterval(() => {
     if (currentLetterIndex > 0) {
@@ -83,18 +72,21 @@ onBeforeUnmount(() => {
   justify-content: flex-start;
   align-items: center;
   padding: 0 20px;
+  width: 100%;
+  white-space: normal;
+  overflow: hidden;
 }
 
 .script {
   font-size: 2rem;
   font-weight: bold;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  white-space: normal;
-  overflow: hidden;
   text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
   display: inline-block;
   position: relative;
-  word-wrap: break-word;
 }
 
 .cursor {
