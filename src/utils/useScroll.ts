@@ -1,24 +1,33 @@
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-export const useScroll = (sectionIds: string[], scrollThreshold = 200) => {
+export const useScroll = (sectionIds: string[]) => {
   const isVisible = ref<Record<string, boolean>>({})
   const showScrollAnimation = ref(true)
 
   onMounted(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        isVisible.value[entry.target.id] = entry.isIntersecting
-      })
-    })
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible.value[entry.target.id] = entry.isIntersecting
+        })
+      },
+      { threshold: 0.1 } // Adjust the threshold for when to consider the section visible
+    )
 
     sectionIds.forEach((id) => {
       const section = document.getElementById(id)
       if (section) observer.observe(section)
     })
 
-    // Listen for scroll to hide the mouse animation after scrolling past threshold
-    window.addEventListener('scroll', () => {
-      showScrollAnimation.value = window.scrollY <= scrollThreshold
+    const handleScroll = () => {
+      showScrollAnimation.value = window.scrollY <= 400
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    // Cleanup
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll)
     })
   })
 
