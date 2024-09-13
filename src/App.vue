@@ -22,12 +22,16 @@
       <h1>Contact Section</h1>
       <p>This is the contact section content.</p>
     </section>
+    <footer>
+      <FooterBar />
+    </footer>
   </main>
 </template>
 
 <script setup lang="ts">
 import MouseMove from '@/components/animation/MouseMove.vue'
 import ParticleMove from '@/components/animation/ParticleMove.vue'
+import FooterBar from '@/components/navigation/FooterBar.vue'
 import NavBar from '@/components/navigation/NavBar.vue'
 import { useScroll } from '@/utils/useScroll'
 
