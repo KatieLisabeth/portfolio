@@ -1,17 +1,16 @@
 <template>
   <div class="container">
     <div class="content">
-      <!-- Image on the left -->
+      <!-- Image  -->
       <div class="photo">
         <img src="/src/assets/photo.png" alt="Photo" />
       </div>
-      <!-- Text on the right -->
+      <!-- Text  -->
       <div class="text">
-        <h2>Hello I'm Katie</h2>
         <ScriptEl />
       </div>
     </div>
-    <!-- Carousel at the bottom -->
+    <!-- Carousel -->
     <div class="carousel">
       <CarouselEl :images="images" />
     </div>
@@ -35,14 +34,13 @@ const images = ref<string[]>(Object.values(svgIcons))
 </script>
 
 <style scoped>
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
-
 
 .content {
   display: flex;
@@ -56,22 +54,25 @@ const images = ref<string[]>(Object.values(svgIcons))
 
 .photo {
   flex: 1;
-  height: 10rem;
+  height: 15rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  margin-left: 4rem;
 }
 
 .photo img {
-  max-width: 100%;
-  height: auto;
+  width: 300px;
+  height: 500px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .text {
   flex: 1;
   padding-left: 1rem;
   color: var(--theme-text-color);
+  height: 200px;
 }
 
 .carousel {

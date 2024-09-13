@@ -43,7 +43,6 @@ const emit = defineEmits(['updateTheme'])
 const themeStore = useThemeStore()
 
 const links = reactive([
-  { text: 'Home', href: '#home' },
   { text: 'About', href: '#about' },
   { text: 'Services', href: '#services' },
   { text: 'Contact', href: '#contact' }
@@ -63,7 +62,7 @@ const links = reactive([
 }
 
 .logo img {
-  height: 90px;
+  height: 50px;
 }
 
 .nav {

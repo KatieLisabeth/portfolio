@@ -2,8 +2,8 @@
   <div class="theme-switch" @click="toggleTheme">
     <!-- Dynamically show Sun or Moon icon based on theme -->
     <div class="icon">
-      <img v-if="!isDarkTheme" src="@/assets/icons/sun.svg" alt="Sun icon" />
-      <img v-else src="@/assets/icons/moon.svg" alt="Moon icon" />
+      <img v-if="!isDarkTheme" src="@/assets/icons/moon.svg" alt="Moon icon" />
+      <img v-else src="@/assets/icons/sun.svg" alt="Sun icon" />
     </div>
   </div>
 </template>
@@ -36,5 +36,10 @@ const toggleTheme = () => {
 .icon img {
   width: 24px;
   height: 24px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.icon img:hover {
+  filter: grayscale(0%);
 }
 </style>
