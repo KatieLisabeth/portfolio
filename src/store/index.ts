@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { onMounted, reactive } from 'vue'
+import { reactive } from 'vue'
 
 const themes = {
   light: {
@@ -45,10 +45,4 @@ export const useThemeStore = defineStore('themeStore', {
       }
     }
   }
-})
-
-onMounted(() => {
-  const themeStore = useThemeStore()
-  themeStore.loadThemeFromSessionStorage()
-  themeStore.detectSystemTheme()
 })
