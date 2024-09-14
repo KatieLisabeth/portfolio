@@ -19,18 +19,16 @@
     </section>
 
     <section id="contact" class="section">
-      <h1>Contact Section</h1>
-      <p>This is the contact section content.</p>
+
     </section>
-    <footer>
-      <FooterBar />
-    </footer>
   </main>
+  <footer>
+    <FooterBar />
+  </footer>
 </template>
 
 <script setup lang="ts">
 import MouseMove from '@/components/animation/MouseMove.vue'
-import ParticleMove from '@/components/animation/ParticleMove.vue'
 import FooterBar from '@/components/navigation/FooterBar.vue'
 import NavBar from '@/components/navigation/NavBar.vue'
 import { useScroll } from '@/utils/useScroll'
@@ -42,7 +40,7 @@ import { useThemeStore } from './store'
 // Lazy-loaded components
 const HomeView = defineAsyncComponent(() => import('@/views/HomeView.vue'))
 const AboutView = defineAsyncComponent(() => import('@/views/AboutView.vue'))
-
+const ParticleMove = defineAsyncComponent(() => import('./components/animation/ParticleMove.vue'))
 // Theme store to manage current theme
 const themeStore = useThemeStore()
 const { currentTheme } = storeToRefs(themeStore)
