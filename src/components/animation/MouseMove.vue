@@ -21,7 +21,7 @@ const themeStore = useThemeStore()
 
 // Computed class to change the theme dynamically
 const themeClass = computed(() => {
-  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-theme' : 'light-theme'
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-move' : 'light-move'
 })
 </script>
 
