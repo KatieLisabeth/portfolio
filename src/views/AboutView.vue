@@ -1,8 +1,8 @@
 <template>
   <div
-    class="about-card"
     ref="aboutCard"
-    :class="{ visible: isVisible, hidden: !isVisible && leftView }"
+    :class="[themeClass, { visible: isVisible, hidden: !isVisible && leftView }, 'about-card']"
+    class="about-card"
   >
     <!-- First row with bounce in animation -->
     <div class="first-row" :class="{ 'bounce-in': isVisible, 'bounce-out': !isVisible }">
@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
-
+import { useThemeStore } from '@/store'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const userData = [
   {
@@ -48,12 +48,14 @@ const userData = [
     text: 'Team Collaboration, Problem-Solving, Time Management, Communication, Adaptability, Attention to Detail, Self-Motivation, Leadership'
   }
 ]
-
+const themeStore = useThemeStore()
+const themeClass = computed(() => {
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-card' : 'light-card'
+})
 const isVisible = ref(false)
 const leftView = ref(false)
 
 const aboutCard = ref<HTMLElement | null>(null)
-
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -90,7 +92,7 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #8b868c;
+  background-color: var(--primary-color);
   border-radius: 8px;
   box-shadow:
     inset 3px 3px 8px #ffffff99,
@@ -145,11 +147,13 @@ onBeforeUnmount(() => {
 .first-row {
   padding: 20px;
   font-size: 1.2rem;
-  color: #e0d7d7;
+  color: var(--about-text);
   text-align: left;
   flex: 1;
 }
-
+.first-row h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .second-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -175,13 +179,13 @@ onBeforeUnmount(() => {
   font-size: 1.4rem;
   margin-bottom: 10px;
   font-weight: 700;
-  color: #e0d7d7;
+  color: var(--text-color);
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .column p {
   font-size: 1rem;
-  color: #e0d7d7;
+  color: var(--card-text);
   text-align: left;
 }
 
