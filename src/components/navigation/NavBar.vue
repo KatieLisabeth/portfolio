@@ -11,8 +11,15 @@
       <img src="/src/assets/logo.svg" alt="Logo" />
     </div>
 
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger" @click="toggleMobileNav">
+      <span :style="{ backgroundColor: themeStore.currentTheme.text }"></span>
+      <span :style="{ backgroundColor: themeStore.currentTheme.text }"></span>
+      <span :style="{ backgroundColor: themeStore.currentTheme.text }"></span>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav :class="{ active: isMobileNavVisible }" class="nav">
       <a
         v-for="link in links"
         :key="link.text"
@@ -21,18 +28,18 @@
       >
         {{ link.text }}
       </a>
+      <div class="theme-switch">
+        <ThemeSwitch :isDarkTheme="isDarkTheme" @updateTheme="emit('updateTheme')" />
+      </div>
     </nav>
 
     <!-- Theme switch -->
-    <div class="theme-switch">
-      <ThemeSwitch :isDarkTheme="isDarkTheme" @updateTheme="emit('updateTheme')" />
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useThemeStore } from '@/store'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import ThemeSwitch from '../controllers/ThemeSwitch.vue'
 
 defineProps({
@@ -43,10 +50,17 @@ const emit = defineEmits(['updateTheme'])
 const themeStore = useThemeStore()
 
 const links = reactive([
-  { text: 'About', href: '#about' },
-  { text: 'Services', href: '#services' },
+  { text: 'About me', href: '#about' },
+  { text: 'Work experience', href: '#work' },
   { text: 'Contact', href: '#contact' }
 ])
+
+// Mobile navigation state
+const isMobileNavVisible = ref(false)
+
+const toggleMobileNav = () => {
+  isMobileNavVisible.value = !isMobileNavVisible.value
+}
 </script>
 
 <style scoped>
@@ -59,6 +73,24 @@ const links = reactive([
   transition:
     background-color 0.5s ease,
     color 0.5s ease;
+  position: relative;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 .logo img {
@@ -84,5 +116,34 @@ nav a:hover {
 .theme-switch {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-background-color, transparent);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav a {
+    margin: 0.5rem 0;
+  }
+
+  .theme-switch {
+    display: none;
+  }
 }
 </style>
