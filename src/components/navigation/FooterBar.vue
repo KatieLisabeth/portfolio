@@ -8,9 +8,9 @@
   >
     <div class="footer-content">
       <div class="footer-left">
-        <p>Kateryna Lisabeth © 2024 - Licensed under MIT. Built with Vue & TypeScript</p>
+        <p>Terms & Conditions | Privacy Policy</p>
       </div>
-      <div class="footer-right">
+      <div class="footer-center">
         <a
           v-for="social in socialLinks"
           :key="social.icon"
@@ -20,6 +20,9 @@
         >
           <img :src="social.icon" :alt="social.name" class="social-icon" />
         </a>
+      </div>
+      <div class="footer-right">
+        <p>© Kateryna Lisabeth 2024 - Built with Vue & TypeScript</p>
       </div>
     </div>
   </footer>
@@ -57,16 +60,24 @@ const socialLinks = [
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .footer-left {
-  font-size: 14px;
-  line-height: 1.5;
+  flex: 1;
+  text-align: left;
 }
 
 .footer-right {
+  flex: 1;
+  text-align: right;
+}
+
+.footer-center {
   display: flex;
   gap: 15px;
+  justify-content: center; /* Aligns social icons in the center by default */
 }
 
 .social-icon {
@@ -81,5 +92,58 @@ const socialLinks = [
 .social-icon:hover {
   filter: grayscale(0%);
   transform: scale(1.15);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: left;
+    flex: 0 0 auto;
+  }
+
+  .footer-center {
+    order: 2;
+    flex: 0 0 auto;
+  }
+
+  .footer-left,
+  .footer-right {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 15px;
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-left,
+  .footer-right {
+    font-size: 12px;
+  }
+
+  .footer-left,
+  .footer-right,
+  .footer-center {
+    flex: 0 0 auto;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 </style>
