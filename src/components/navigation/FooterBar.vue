@@ -61,7 +61,7 @@ const socialLinks = [
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 20px; /* Adds spacing between elements */
 }
 
 .footer-left {
