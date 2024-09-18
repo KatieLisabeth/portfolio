@@ -1,217 +1,160 @@
 <template>
-  <div
-    ref="aboutCard"
-    :class="[themeClass, { visible: isVisible, hidden: !isVisible && leftView }, 'about-card']"
-    class="about-card"
-  >
-    <!-- First row with bounce in animation -->
-    <div class="first-row" :class="{ 'bounce-in': isVisible, 'bounce-out': !isVisible }">
-      <h1>About me</h1>
-      <p>
-        Highly motivated and reliable Front-end developer with a passion for programming and
-        problem-solving, committed to delivering results-oriented solutions. Skilled in working
-        independently on smaller projects and collaborating effectively within larger teams.
-        Experienced in developing Software as a Service (SaaS) applications, with a focus on
-        creating efficient, scalable, and user-centric products.
-      </p>
-    </div>
-
-    <!-- Second row divided into 4 columns -->
-    <div class="second-row">
-      <div class="column" v-for="(item, index) in userData" :key="index">
-        <h3>{{ item.header }}</h3>
-        <p>{{ item.text }}</p>
+  <div class="container">
+    <div v-for="(card, index) in cards" :key="index" :class="['item', card.boxClass]">
+      <div class="card-content">
+        <img v-if="card.link" :src="card.link" alt="grid image" class="link" />
+        <h3 class="title">{{ card.title }}</h3>
+        <p class="description">{{ card.description }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { useThemeStore } from '@/store'
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-
-const userData = [
-  {
-    header: 'Stacks',
-    text: 'HTML, CSS, SaaS, JavaScript, TypeScript, React, Vue, Bootstrap, Tailwind, Node.js, REST APIs, GraphQL'
-  },
-  {
-    header: 'Frameworks',
-    text: 'Vue.js, Nuxt.js, React, Next.js, Express, Tailwind CSS, Bootstrap, Vite'
-  },
-  {
-    header: 'Hard Skills',
-    text: 'Version Control (Git), Unit Testing, Integration Testing, Responsive Design, Performance Optimization, Webpack, Docker, CI/CD pipelines'
-  },
-  {
-    header: 'Soft Skills',
-    text: 'Team Collaboration, Problem-Solving, Time Management, Communication, Adaptability, Attention to Detail, Self-Motivation, Leadership'
-  }
-]
-const themeStore = useThemeStore()
-const themeClass = computed(() => {
-  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-card' : 'light-card'
-})
-const isVisible = ref(false)
-const leftView = ref(false)
-
-const aboutCard = ref<HTMLElement | null>(null)
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-        } else {
-          isVisible.value = false
-          leftView.value = true
+<script>
+export default {
+  name: 'CardGrid',
+  data() {
+    return {
+      cards: [
+        {
+          link: '/src/assets/images/me.png',
+          title: 'Hi, I’m Katie Lisabeth',
+          description:
+            'With 3 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic and responsive websites.',
+          boxClass: ''
+        },
+        {
+          link: '/src/assets/images/stack.png',
+          title: 'Tech Stack',
+          description:
+            'I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications',
+          boxClass: ''
+        },
+        {
+          link: '/src/assets/images/skills.png',
+          title: 'Soft skills',
+          description:
+            'I excel in communication, teamwork, and problem-solving by collaborating effectively with others to break down complex challenges and deliver solutions. I’m adaptable, detail-oriented, and constantly learning, balancing creativity with accountability and time management to build quality software while maintaining empathy for users and colleagues.',
+          boxClass: 'box-big1'
+        },
+        {
+          link: '/src/assets/images/love.png',
+          title: 'My Passion for Coding',
+          description:
+            "I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills.",
+          boxClass: 'box-big3'
+        },
+        {
+          link: '/src/assets/images/contact.png',
+          title: 'Contact me',
+          description: 'katie_lisabeth@yahoo.com',
+          boxClass: 'box-big2'
         }
-      })
-    },
-    { threshold: 0.1 }
-  )
-
-  if (aboutCard.value) {
-    observer.observe(aboutCard.value)
+      ]
+    }
   }
-})
-
-onBeforeUnmount(() => {
-  if (aboutCard.value) {
-    aboutCard.value = null
-  }
-})
+}
 </script>
 
 <style scoped>
-.about-card {
+.container {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, minmax(300px, auto));
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.item {
+  background: #4d4d4d81;
+  padding: 5px;
+  border-radius: 12px;
+  border: 3px solid #848484;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.box-big1 {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.box-big2 {
+  grid-column: 3 / 4;
+}
+.box-big3 {
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   height: 100%;
+  position: relative;
+  background: rgba(45, 45, 45, 0.8);
+  border-radius: 20px;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--primary-color);
+}
+
+.link {
+  width: 300px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  box-shadow:
-    inset 3px 3px 8px #ffffff99,
-    inset -3px -3px 8px #00000066,
-    5px 5px 15px #00000033;
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
 }
 
-.about-card.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.bounce-in {
-  animation: bounceIn 1s ease-out;
-}
-
-.bounce-out {
-  animation: bounceOut 0.6s ease forwards;
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.7) translateY(-10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes bounceOut {
-  0% {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0.8) translateY(-200px);
-    opacity: 0;
-  }
-}
-
-.first-row {
-  padding: 20px;
-  font-size: 1.2rem;
-  color: var(--about-text);
+.title {
+  font-size: 1.8rem;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-align: left;
-  flex: 1;
-}
-.first-row h1 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.second-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-  flex: 1;
+  overflow: hidden;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow:
-    inset 3px 3px 8px #ffffff99,
-    inset -3px -3px 8px #00000066,
-    5px 5px 15px #00000033;
-}
-
-.column h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-  color: var(--text-color);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.column p {
-  font-size: 1rem;
-  color: var(--card-text);
+.description {
+  font-size: 1.2rem; /* Slightly larger font for the description */
+  margin: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
   text-align: left;
 }
 
-@media (max-width: 1024px) {
-  .second-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .second-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-card {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .second-row {
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
-
-  .first-row {
-    padding: 10px;
+  .box-big1,
+  .box-big2,
+  .box-big3 {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
 </style>
