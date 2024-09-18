@@ -2,6 +2,7 @@
   --primary-color: #ccd7d9;
   --secondary-color: #c9b8b8;
   --text-color: #3d3d3d;
+  --color: rgba(28, 93, 95, 1);
 
   --color-background: var(--primary-color);
   --color-background-soft: var(--secondary-color);
@@ -9,16 +10,12 @@
   --color-border-hover: rgba(60, 60, 60, 0.29);
   --color-heading: var(--text-color);
   --section-gap: 160px;
+  --nav-background-color: var(--primary-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: linear-gradient(
-      93deg,
-      rgba(44, 53, 49, 1) 5%,
-      rgba(28, 93, 95, 1) 52%,
-      rgba(44, 53, 49, 1) 95%
-    );
+    --primary-color: rgba(68, 148, 141, 1);
     --secondary-color: linear-gradient(93deg, rgba(84, 84, 84, 1) 5%, rgba(60, 60, 60, 1) 95%);
     --text-color: #16d287;
   }
@@ -84,15 +81,15 @@ body {
 }
 
 .light-card {
-  --primary-color: #7c6e6e;
-  --about-text: #c9b8b8;
+  --primary-color: #7c6e61;
+  --about-text: #cab8b8;
   --text-color: #f9cbba;
   --card-text: #ffc0a9;
 }
 
 .dark-card {
-  --primary-color: #0b5356;
-  --about-text: #c9b8b8;
+  --primary-color: #0b5956;
+  --about-text: #cad8a8;
   --text-color: #f9cbba;
   --card-text: #ffc0a9;
 }

@@ -1,26 +1,23 @@
 <template>
-  <header :style="{ backgroundColor: currentTheme.secondary, color: currentTheme.text }">
+  <header :style="{ backgroundColor: currentTheme.primary, color: currentTheme.text }">
     <NavBar :isDarkTheme="isDarkTheme" @updateTheme="updateTheme" />
   </header>
 
   <main>
     <section id="home" class="section">
-      <HomeView :themeTextColor="currentTheme.text" />
-      <MouseMove v-if="showScrollAnimation" />
-    </section>
-
-    <section id="about" class="section">
-      <AboutView v-if="isVisible.about" />
-    </section>
-
-    <section id="services" class="section">
-      <h1>Services Section</h1>
+      <HomeView :themeTextColor="currentTheme.text" :showScroll="showScrollAnimation" />
       <ParticleMove />
     </section>
 
-    <section id="contact" class="section">
-
+    <section id="about" class="section">
+      <AboutView />
     </section>
+
+    <section id="work" class="section">
+      <WorkView :isVisible="isVisible.work" />
+    </section>
+
+    <section id="contact" class="section"></section>
   </main>
   <footer>
     <FooterBar />
@@ -28,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import MouseMove from '@/components/animation/MouseMove.vue'
 import FooterBar from '@/components/navigation/FooterBar.vue'
 import NavBar from '@/components/navigation/NavBar.vue'
 import { useScroll } from '@/utils/useScroll'
@@ -40,6 +36,7 @@ import { useThemeStore } from './store'
 // Lazy-loaded components
 const HomeView = defineAsyncComponent(() => import('@/views/HomeView.vue'))
 const AboutView = defineAsyncComponent(() => import('@/views/AboutView.vue'))
+const WorkView = defineAsyncComponent(() => import('@/views/WorkView.vue'))
 const ParticleMove = defineAsyncComponent(() => import('./components/animation/ParticleMove.vue'))
 // Theme store to manage current theme
 const themeStore = useThemeStore()
@@ -62,7 +59,7 @@ const updateTheme = () => {
 }
 
 // Use composable to handle scroll and section visibility (but no theme change based on scroll)
-const { isVisible, showScrollAnimation } = useScroll(['home', 'about'])
+const { isVisible, showScrollAnimation } = useScroll(['home', 'about', 'work'])
 
 // Ensure the correct theme is applied when the page is loaded
 onMounted(() => {
@@ -84,9 +81,7 @@ header {
 
 .section {
   width: 100vw;
-  height: 100vh;
-  padding: 1rem;
-  text-align: center;
+  height: auto;
 }
 
 .section:nth-of-type(odd) {
