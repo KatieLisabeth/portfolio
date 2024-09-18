@@ -34,7 +34,6 @@ const themeClass = computed(() => {
 
 <style scoped>
 .mouse-scroll-animation {
-  display: block;
   margin: 0 auto;
   width: 24px;
   height: 30px;
