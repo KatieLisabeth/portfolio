@@ -1,5 +1,5 @@
 <template>
-  <div :class="themeClass" class="mouse-scroll-animation">
+  <div :class="[themeClass, { 'transparent-mouse': !showScroll }]" class="mouse-scroll-animation">
     <div class="mouse">
       <div class="mouse-wheel"></div>
     </div>
@@ -16,6 +16,13 @@
 import { useThemeStore } from '@/store'
 import { computed } from 'vue'
 
+defineProps({
+  showScroll: {
+    type: Boolean,
+    required: true
+  }
+})
+
 // Access the theme store
 const themeStore = useThemeStore()
 
@@ -27,7 +34,6 @@ const themeClass = computed(() => {
 
 <style scoped>
 .mouse-scroll-animation {
-  display: block;
   margin: 0 auto;
   width: 24px;
   height: 30px;
@@ -39,7 +45,9 @@ const themeClass = computed(() => {
   border: 2px solid var(--primary-color);
   border-radius: 50px;
   position: relative;
-  transition: border-color 0.5s;
+  transition:
+    border-color 0.5s,
+    opacity 0.5s;
 }
 
 .mouse-wheel {
@@ -72,6 +80,13 @@ const themeClass = computed(() => {
   width: 16px;
   height: 16px;
   animation: mouse-scroll 1s infinite;
+}
+
+/* Mouse becomes transparent when showScroll is false */
+.transparent-mouse {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
 @keyframes mouse-scroll {

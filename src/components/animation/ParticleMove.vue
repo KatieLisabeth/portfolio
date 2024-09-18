@@ -8,10 +8,8 @@
 import { useThemeStore } from '@/store'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
-// Access the theme store
 const themeStore = useThemeStore()
 
-// Get the particle color based on the current theme
 const particleColor = computed(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? '#86d9ca' : '#473131'
 })
@@ -126,14 +124,12 @@ const startParticles = () => {
   animate()
 }
 
-// Update the color of particles without resetting everything
 const updateParticleColors = (newColor) => {
   particles.forEach((particle) => {
     particle.updateColor(newColor)
   })
 }
 
-// Cleanup when the component is unmounted
 onBeforeUnmount(() => {
   cancelAnimationFrame(animationFrameId)
 })
@@ -141,7 +137,6 @@ onBeforeUnmount(() => {
 onMounted(() => {
   startParticles()
 
-  // Watch for theme changes and update particle colors
   watch(
     () => themeStore.currentTheme,
     () => {
@@ -153,16 +148,16 @@ onMounted(() => {
 
 <style scoped>
 .particles-container {
+  position: absolute;
+  top: 0;
   width: 100%;
-  height: 100vh;
-  background-color: transparent;
-  overflow: hidden;
+  height: 100%;
   z-index: -1;
+  background-color: transparent;
 }
 
 .particles-canvas {
-  display: block;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 </style>

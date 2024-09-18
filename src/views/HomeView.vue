@@ -1,23 +1,35 @@
 <template>
   <div class="container">
+    <!-- Image and Text in the same height-restricted container -->
     <div class="content">
       <!-- Image  -->
-      <div class="photo">
-        <img src="/src/assets/photo.png" alt="Photo" />
-      </div>
+      <figure class="photo">
+        <img src="@/assets/photo.png" alt="Photo of Katie" />
+      </figure>
       <!-- Text  -->
       <div class="text">
+        <h1>Hello, I'm Katie</h1>
         <ScriptEl />
       </div>
     </div>
-    <!-- Carousel -->
+
+    <!-- Tech stack  -->
+
     <div class="carousel">
       <CarouselEl :images="images" />
     </div>
+    <!-- Mouse  -->
+    <div class="mouse">
+      <MouseMove :showScroll="showScroll" />
+    </div>
+
+    <ParticleMove />
   </div>
 </template>
 
 <script setup lang="ts">
+import MouseMove from '@/components/animation/MouseMove.vue'
+import ParticleMove from '@/components/animation/ParticleMove.vue'
 import CarouselEl from '@/components/elements/CarouselEl.vue'
 import ScriptEl from '@/components/elements/ScriptEl.vue'
 import { svgIcons } from '@/mixins/icons'
@@ -27,6 +39,10 @@ defineProps({
   themeTextColor: {
     type: String,
     required: true
+  },
+  showScroll: {
+    type: Boolean,
+    required: true
   }
 })
 
@@ -35,11 +51,13 @@ const images = ref<string[]>(Object.values(svgIcons))
 
 <style scoped>
 .container {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .content {
@@ -49,34 +67,74 @@ const images = ref<string[]>(Object.values(svgIcons))
   justify-content: space-evenly;
   width: 100%;
   max-width: 1200px;
-  padding: 1rem;
+  box-sizing: border-box;
+  height: auto;
+  margin-bottom: 2rem;
 }
 
 .photo {
   flex: 1;
-  height: 15rem;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-left: 4rem;
 }
 
 .photo img {
-  width: 300px;
-  height: 500px;
+  width: 400px;
+  height: auto;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 .text {
-  flex: 1;
-  padding-left: 1rem;
+  width: 100%;
   color: var(--theme-text-color);
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  height: 350px;
 }
 
 .carousel {
+  margin-top: 1rem;
   width: 100%;
-  margin-top: 7rem;
+}
+
+.mouse {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photo img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .text {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .mouse {
+    width: 100%;
+    height: 150px;
+  }
+  .carousel {
+    margin: 0;
+    width: 100%;
+  }
+  .container {
+    justify-content: space-between;
+  }
 }
 </style>

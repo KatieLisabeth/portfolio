@@ -13,7 +13,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 const themeStore = useThemeStore()
 
 const words = [
-  "Hello, I'm Katie, a passionate developer with a deep love for coding",
+  "I'm passionate developer with a deep love for coding",
   'I specialize in creating responsive, user-friendly websites, seamlessly blending animation and design to bring ideas to life.',
   "I thrive on harnessing the power of frontend frameworks and backend logic, and I'm driven by the endless opportunities for learning and growth in the tech world.",
 ]
@@ -71,7 +71,7 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 20px;
+  padding: 0;
   width: 100%;
   white-space: normal;
   overflow: hidden;
