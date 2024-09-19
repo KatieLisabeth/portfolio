@@ -3,18 +3,18 @@
     v-for="(item, index) in items"
     :key="index"
     :class="[
-      index % 2 === 0 ? 'left' : 'right',
       'timeline-item',
-      { visible: localIsVisible[index] }
+      index % 2 === 0 ? 'left' : 'right',
+      {
+        'slide-in': isWorkSessionVisible && isVisible[index]
+      }
     ]"
-    ref="el => timelineRefs[index] = el"
+    ref="timelineRefs"
   >
-    <!-- Icon on the timeline (centered) -->
     <div class="timeline-icon" :style="{ background: item.iconBg }">
       <img :src="item.icon" :alt="item.companyName" class="icon-image" />
     </div>
 
-    <!-- Content card -->
     <div class="timeline-content">
       <span class="date">{{ item.date }}</span>
       <h3 class="title">{{ item.title }}</h3>
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, type PropType } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch, type PropType } from 'vue'
 
 interface Item {
   title: string
@@ -47,19 +47,51 @@ const props = defineProps({
     required: true,
     default: () => []
   },
-  isVisible: {
+  isWorkSessionVisible: {
     type: Boolean,
     required: true
   }
 })
 
-const localIsVisible = ref(Array(props.items.length).fill(false))
+const timelineRefs = ref<(HTMLElement | null)[]>([])
+const isVisible = ref<boolean[]>([])
+let observer: IntersectionObserver
+
+onMounted(() => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = timelineRefs.value.findIndex((el) => el === entry.target)
+        if (index !== -1) {
+          isVisible.value[index] = entry.isIntersecting
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+})
+
+onBeforeUnmount(() => {
+  timelineRefs.value.forEach((el) => {
+    if (el) observer.unobserve(el)
+  })
+})
 
 watch(
-  () => props.isVisible,
+  () => props.isWorkSessionVisible,
   (newVal) => {
     if (newVal) {
-      localIsVisible.value = Array(props.items.length).fill(true)
+      timelineRefs.value.forEach((el) => {
+        if (el) {
+          observer.observe(el)
+        }
+      })
+    } else {
+      timelineRefs.value.forEach((el) => {
+        if (el) {
+          observer.unobserve(el)
+        }
+      })
     }
   }
 )
@@ -71,29 +103,21 @@ watch(
   align-items: flex-start;
   justify-content: flex-end;
   position: relative;
-  padding: 2rem;
+
   transform: translateY(20px) scale(0.95);
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
 }
-.timeline-item.visible {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-}
 
 .timeline-item.left .timeline-content {
   margin-right: auto;
   text-align: right;
-  animation: fadeInLeft 1s ease-in-out;
-  animation-fill-mode: forwards;
 }
 
 .timeline-item.right .timeline-content {
   margin-left: auto;
   text-align: left;
-  animation: fadeInRight 0.5s ease-in-out;
-  animation-fill-mode: forwards;
 }
 
 .timeline-icon {
@@ -122,7 +146,7 @@ watch(
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 3px;
   height: 100%;
   background: #e8e8e8;
 }
@@ -145,8 +169,7 @@ watch(
   color: #bbb;
 }
 
-/* Fade in animations */
-@keyframes fadeInLeft {
+@keyframes slideInFromLeft {
   from {
     opacity: 0;
     transform: translateX(-50px);
@@ -157,7 +180,7 @@ watch(
   }
 }
 
-@keyframes fadeInRight {
+@keyframes slideInFromRight {
   from {
     opacity: 0;
     transform: translateX(50px);
@@ -167,6 +190,17 @@ watch(
     transform: translateX(0);
   }
 }
+
+.timeline-item.slide-in.left .timeline-content {
+  animation: slideInFromLeft 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.timeline-item.slide-in.right .timeline-content {
+  animation: slideInFromRight 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 @media (max-width: 1400px) {
   .timeline-item {
     padding: 3rem;
@@ -190,7 +224,7 @@ watch(
   }
 
   .timeline-container::before {
-    width: 3px;
+    width: 5px;
   }
 }
 
@@ -199,7 +233,7 @@ watch(
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
     text-align: left;
-    width: 90%;
+    width: 100%;
     margin-left: 0;
     margin-right: 0;
     padding: 0;
