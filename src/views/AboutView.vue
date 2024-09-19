@@ -56,13 +56,12 @@ const cards = [
 const isVisible = ref(false)
 const leftView = ref(false)
 const aboutPage = ref<HTMLElement | null>(null)
-// Access the theme store
 const themeStore = useThemeStore()
 
-// Computed class to change the theme dynamically
 const themeClass = computed(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? 'dark-card' : 'light-card'
 })
+
 onMounted(() => {
   const observer = new IntersectionObserver(
     (cards) => {
@@ -193,7 +192,7 @@ onBeforeUnmount(() => {
 }
 
 .card-content:hover {
-  background:var(--hover-color);
+  background: var(--hover-color);
 }
 
 .link {
@@ -216,34 +215,34 @@ onBeforeUnmount(() => {
   text-overflow: ellipsis;
   text-align: left;
   overflow: hidden;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font);
   color: var(--title-text);
 }
 
 .description {
-  font-size: 1.2rem; /* Slightly larger font for the description */
+  font-size: 1.2rem;
   margin: 0;
   white-space: normal;
   overflow-wrap: break-word;
   text-align: left;
-  font-family: 'Courier New', Courier, monospace;
-   color: var(--description-text);
+  font-family: var(--font);
+  color: var(--description-text);
 }
-/* Responsive adjustments */
+
 @media (max-width: 860px) {
   .title {
     font-size: 1.3rem;
   }
 
   .description {
-    font-size: 1rem; /* Slightly larger font for the description */
+    font-size: 1rem;
   }
   .link img {
     width: 80%;
     height: 80%;
   }
 }
-/* Responsive adjustments */
+
 @media (max-width: 600px) {
   .container {
     grid-template-columns: 1fr;

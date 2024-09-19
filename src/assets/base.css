@@ -82,14 +82,17 @@ body {
 
 .light-card {
   --primary-color: #7c6e61;
-  --about-text: #cab8b8;
-  --text-color: #f9cbba;
+  --title-text: #cab8b8;
+  --description-text: #f9cbba;
   --card-text: #ffc0a9;
+  --hover-color: rgba(75, 75, 45, 0.5);
 }
 
 .dark-card {
-  --primary-color: #0b5956;
-  --about-text: #cad8a8;
-  --text-color: #f9cbba;
+  --primary-color: rgba(45, 45, 45, 0.8);
+  --title-text: #cad8a8;
+  --description-text: #f9cbba;
   --card-text: #ffc0a9;
+  --hover-color: rgba(25, 25, 25, 0.8);
+  --font: 'Courier New', Courier, monospace;
 }
