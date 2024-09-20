@@ -57,30 +57,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.some-element {
-  background: var(--secondary-color);
-  color: var(--text-color);
-  transition:
-    background 0.5s ease,
-    color 0.5s ease;
-}
-
-.transition-theme {
-  transition:
-    background-color 0.5s ease,
-    color 0.5s ease;
-}
-.light-move {
+.light-mouse {
   --primary-color: #3d3d3d;
   --secondary-color: #c9b8b8;
 }
 
-.dark-move {
+.dark-mouse {
   --primary-color: #16d287;
   --secondary-color: #fff;
 }
 
-.light-card {
+.light-about {
   --primary-color: #7c6e61;
   --title-text: #cab8b8;
   --description-text: #f9cbba;
@@ -88,11 +75,18 @@ body {
   --hover-color: rgba(75, 75, 45, 0.5);
 }
 
-.dark-card {
+.dark-about {
   --primary-color: rgba(45, 45, 45, 0.8);
   --title-text: #cad8a8;
   --description-text: #f9cbba;
   --card-text: #ffc0a9;
   --hover-color: rgba(25, 25, 25, 0.8);
   --font: 'Courier New', Courier, monospace;
+}
+
+.dark-hamburger-color {
+  color: '#ffc0a9';
+}
+.light-hamburger-color {
+  color: '#ffc0a9';
 }
