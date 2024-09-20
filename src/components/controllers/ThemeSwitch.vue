@@ -1,6 +1,6 @@
 <template>
   <div class="theme-switch" @click="toggleTheme">
-    <!-- Dynamically show Sun or Moon icon based on theme -->
+    <!-- Sun or Moon icon based on theme -->
     <div class="icon">
       <img v-if="!isDarkTheme" src="@/assets/icons/moon.svg" alt="Moon icon" />
       <img v-else src="@/assets/icons/sun.svg" alt="Sun icon" />
@@ -24,7 +24,7 @@ const toggleTheme = () => {
 .theme-switch {
   display: flex;
   align-items: center;
-  cursor: pointer; /* Make the cursor a pointer when hovering over the switch */
+  cursor: pointer;
 }
 
 .icon {
