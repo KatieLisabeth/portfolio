@@ -20,7 +20,7 @@
     </div>
     <!-- Mouse  -->
     <div class="mouse">
-      <MouseMove :showScroll="showScroll" />
+      <MouseScroll :showScroll="showScroll" />
     </div>
 
     <ParticleMove />
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import MouseMove from '@/components/animation/MouseMove.vue'
+import MouseScroll from '@/components/animation/MouseScroll.vue'
 import ParticleMove from '@/components/animation/ParticleMove.vue'
 import CarouselEl from '@/components/elements/CarouselEl.vue'
 import ScriptEl from '@/components/elements/ScriptEl.vue'

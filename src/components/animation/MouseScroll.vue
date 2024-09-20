@@ -1,5 +1,5 @@
 <template>
-  <div :class="[themeClass, { 'transparent-mouse': !showScroll }]" class="mouse-scroll-animation">
+  <div :class="[themeClass, { 'transparent-mouse': !showScroll }, 'mouse-scroll-animation']">
     <div class="mouse">
       <div class="mouse-wheel"></div>
     </div>
@@ -23,12 +23,10 @@ defineProps({
   }
 })
 
-// Access the theme store
 const themeStore = useThemeStore()
 
-// Computed class to change the theme dynamically
 const themeClass = computed(() => {
-  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-move' : 'light-move'
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-mouse' : 'light-mouse'
 })
 </script>
 

@@ -15,11 +15,11 @@ const themeStore = useThemeStore()
 const words = [
   "I'm passionate developer with a deep love for coding",
   'I specialize in creating responsive, user-friendly websites, seamlessly blending animation and design to bring ideas to life.',
-  "I thrive on harnessing the power of frontend frameworks and backend logic, and I'm driven by the endless opportunities for learning and growth in the tech world.",
+  "I thrive on harnessing the power of frontend frameworks and backend logic, and I'm driven by the endless opportunities for learning and growth in the tech world."
 ]
 
-const currentWordIndex = ref(0) // Tracks the current word index
-const displayedText = ref('') // Displays the typing effect text
+const currentWordIndex = ref(0)
+const displayedText = ref('')
 let typingInterval: number | undefined
 let deletingInterval: number | undefined
 
@@ -98,6 +98,11 @@ onBeforeUnmount(() => {
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  .script {
+    font-size: 1rem;
   }
 }
 </style>

@@ -1,11 +1,5 @@
 <template>
-  <footer
-    class="footer"
-    :style="{
-      backgroundColor: themeStore.currentTheme.primary,
-      color: themeStore.currentTheme.text
-    }"
-  >
+  <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
         <p>Terms & Conditions | Privacy Policy</p>
@@ -49,6 +43,8 @@ const socialLinks = [
   width: 100%;
   padding: 10px 20px;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  color: var(--primary-text);
   transition:
     background-color 0.5s ease,
     color 0.5s ease;
@@ -61,7 +57,7 @@ const socialLinks = [
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px; /* Adds spacing between elements */
+  gap: 20px;
 }
 
 .footer-left {
@@ -77,7 +73,7 @@ const socialLinks = [
 .footer-center {
   display: flex;
   gap: 15px;
-  justify-content: center; /* Aligns social icons in the center by default */
+  justify-content: center;
 }
 
 .social-icon {
@@ -94,7 +90,6 @@ const socialLinks = [
   transform: scale(1.15);
 }
 
-/* Media queries for responsive design */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: row;

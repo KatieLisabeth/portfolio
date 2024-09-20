@@ -1,38 +1,28 @@
 <template>
-  <div :class="[themeClass, 'about-page']">
+  <div :class="[themeClass, 'container']">
     <h1>Work Experience</h1>
-
+    <MovingHorizon />
     <div class="timeline-container">
-      <!-- Timeline items -->
-      <TimelineEl :items="experiences" :isVisible="localIsVisible" />
+      <!-- Timeline  -->
+      <TimelineEl :isWorkSessionVisible="isWorkSessionVisible" :items="timelineItems" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import MovingHorizon from '@/components/animation/MovingHorizon.vue'
 import TimelineEl from '@/components/elements/TimelineEl.vue'
 import { useThemeStore } from '@/store'
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
-// Define props
-const props = defineProps<{ isVisible: boolean }>()
-
-// Local state for managing visibility in this component
-const localIsVisible = ref(false)
-
-// Watch for changes in the `isVisible` prop from the parent component
-watch(
-  () => props.isVisible,
-  (newVal) => {
-    if (newVal) {
-      console.log(newVal)
-      localIsVisible.value = newVal // Trigger the local visibility when `isVisible` becomes true
-    }
+defineProps({
+  isWorkSessionVisible: {
+    type: Boolean,
+    required: true
   }
-)
+})
 
-// Experience data
-const experiences = ref([
+const timelineItems = ref([
   {
     title: 'Front-end Developer',
     companyName: 'Tech Solutions Inc.',
@@ -79,12 +69,19 @@ const themeClass = computed(() => {
 </script>
 
 <style scoped>
-.about-page {
+.container {
   width: 100%;
   height: 100%;
   padding: 1rem;
 }
-/* Timeline container */
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .timeline-container {
   width: 100%;
   height: 100%;

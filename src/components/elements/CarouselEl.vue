@@ -1,7 +1,6 @@
 <template>
   <div class="carousel-wrapper">
     <div class="carousel-container" :style="{ transform: `translateX(${position}px)` }">
-      <!-- Display images twice for smooth infinite scroll -->
       <img
         v-for="(image, index) in repeatedImages"
         :key="index"
@@ -23,7 +22,7 @@ const props = defineProps({
     default: () => []
   }
 })
-// Duplicate the images array to create the seamless loop
+
 const repeatedImages = ref([...props.images, ...props.images])
 
 const position = ref<number>(0)
@@ -73,5 +72,10 @@ onBeforeUnmount(() => {
 
 .carousel-image:hover {
   filter: grayscale(0%);
+}
+@media (max-width: 768px) {
+  .carousel-image {
+    width: 50px;
+  }
 }
 </style>

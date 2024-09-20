@@ -4,27 +4,36 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useThemeStore } from '@/store'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 const themeStore = useThemeStore()
 
-const particleColor = computed(() => {
+const particleColor = computed<string>(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? '#86d9ca' : '#473131'
 })
 
-const particlesCanvas = ref(null)
-const particles = []
+const particlesCanvas = ref<HTMLCanvasElement | null>(null)
+const particles: Particle[] = []
 const particleCount = 100
 const maxDistance = 100
-let animationFrameId
+let animationFrameId: number
 
 // Particle class definition
 class Particle {
-  constructor(canvas, color) {
+  canvas: HTMLCanvasElement
+  ctx: CanvasRenderingContext2D
+  x: number
+  y: number
+  size: number
+  color: string
+  speedX: number
+  speedY: number
+
+  constructor(canvas: HTMLCanvasElement, color: string) {
     this.canvas = canvas
-    this.ctx = canvas.getContext('2d')
+    this.ctx = canvas.getContext('2d')!
     this.x = Math.random() * this.canvas.width
     this.y = Math.random() * this.canvas.height
     this.size = Math.random() * 4 + 1
@@ -62,7 +71,7 @@ class Particle {
   }
 
   // Update the color of the particle dynamically
-  updateColor(newColor) {
+  updateColor(newColor: string) {
     this.color = newColor
   }
 }
@@ -93,19 +102,19 @@ const startParticles = () => {
         const distance = Math.sqrt(dx * dx + dy * dy)
 
         if (distance < maxDistance) {
-          ctx.strokeStyle = `rgba(${hexToRgb(particleColor.value)}, ${1 - distance / maxDistance})`
-          ctx.lineWidth = 1
-          ctx.beginPath()
-          ctx.moveTo(particles[i].x, particles[i].y)
-          ctx.lineTo(particles[j].x, particles[j].y)
-          ctx.stroke()
+          ctx!.strokeStyle = `rgba(${hexToRgb(particleColor.value)}, ${1 - distance / maxDistance})`
+          ctx!.lineWidth = 1
+          ctx!.beginPath()
+          ctx!.moveTo(particles[i].x, particles[i].y)
+          ctx!.lineTo(particles[j].x, particles[j].y)
+          ctx!.stroke()
         }
       }
     }
   }
 
   // Helper function to convert hex color to RGB format
-  const hexToRgb = (hex) => {
+  const hexToRgb = (hex: string): string => {
     const bigint = parseInt(hex.slice(1), 16)
     const r = (bigint >> 16) & 255
     const g = (bigint >> 8) & 255
@@ -115,7 +124,7 @@ const startParticles = () => {
 
   // Animation loop
   const animate = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx!.clearRect(0, 0, canvas.width, canvas.height)
     particles.forEach((particle) => particle.update())
     connectParticles()
     animationFrameId = requestAnimationFrame(animate)
@@ -124,7 +133,7 @@ const startParticles = () => {
   animate()
 }
 
-const updateParticleColors = (newColor) => {
+const updateParticleColors = (newColor: string) => {
   particles.forEach((particle) => {
     particle.updateColor(newColor)
   })
@@ -153,11 +162,15 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
 }
 
 .particles-canvas {
   width: 100%;
-  height: 80%;
+  height: 100%;
+  overflow: hidden;
 }
 </style>
