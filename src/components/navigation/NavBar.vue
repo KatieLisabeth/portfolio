@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="header"
-    :style="{
-      backgroundColor: themeStore.currentTheme.primary,
-      color: themeStore.currentTheme.text
-    }"
-  >
+  <div class="header">
     <!-- Logo -->
     <div class="logo">
       <img src="/src/assets/logo.svg" alt="Logo" />
@@ -20,20 +14,13 @@
 
     <!-- Navigation -->
     <nav :class="{ active: isMobileNavVisible }" class="nav">
-      <a
-        v-for="link in links"
-        :key="link.text"
-        :href="link.href"
-        :style="{ color: themeStore.currentTheme.text }"
-      >
+      <a v-for="link in links" :key="link.text" :href="link.href">
         {{ link.text }}
       </a>
       <div class="theme-switch">
         <ThemeSwitch :isDarkTheme="isDarkTheme" @updateTheme="emit('updateTheme')" />
       </div>
     </nav>
-
-    <!-- Theme switch -->
   </div>
 </template>
 
@@ -52,7 +39,7 @@ const themeStore = useThemeStore()
 const links = reactive([
   { text: 'About me', href: '#about' },
   { text: 'Work experience', href: '#work' },
-  { text: 'Contact', href: '#contact' }
+  { text: 'Projects', href: '#projects' }
 ])
 
 // Mobile navigation state
@@ -70,13 +57,13 @@ const toggleMobileNav = () => {
   align-items: center;
   margin: 0 auto;
   padding: 0.5rem;
+  background-color: var(--primary-color);
   transition:
     background-color 0.5s ease,
     color 0.5s ease;
   position: relative;
 }
 
-/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -90,6 +77,7 @@ const toggleMobileNav = () => {
   display: block;
   height: 3px;
   width: 100%;
+  background-color: var(--primary-color);
   transition: background-color 0.3s ease;
 }
 
@@ -106,7 +94,8 @@ nav a {
   margin: 0 1rem;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
+  color: var(--primary-text);
 }
 
 nav a:hover {
@@ -124,7 +113,7 @@ nav a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--nav-background-color, transparent);
+    background-color: var(red);
     flex-direction: column;
     align-items: center;
     display: none;
@@ -132,6 +121,7 @@ nav a:hover {
 
   .nav.active {
     display: flex;
+    background: rgba(89, 92, 92, 0.541);
   }
 
   .hamburger {
@@ -140,6 +130,7 @@ nav a:hover {
 
   .nav a {
     margin: 0.5rem 0;
+    color: rgb(183, 219, 25);
   }
 
   .theme-switch {
