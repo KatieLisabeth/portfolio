@@ -59,7 +59,7 @@ const aboutPage = ref<HTMLElement | null>(null)
 const themeStore = useThemeStore()
 
 const themeClass = computed(() => {
-  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-card' : 'light-card'
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-about' : 'light-about'
 })
 
 onMounted(() => {
@@ -109,16 +109,20 @@ onBeforeUnmount(() => {
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
 }
+
 .container.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
 .bounce-in {
   animation: bounceIn 1s ease-out;
 }
+
 .bounce-out {
   animation: bounceOut 0.6s ease forwards;
 }
+
 @keyframes bounceIn {
   0% {
     opacity: 0;
@@ -128,6 +132,7 @@ onBeforeUnmount(() => {
     transform: scale(1) translateY(0);
   }
 }
+
 @keyframes bounceOut {
   0% {
     transform: scale(1) translateY(0);
