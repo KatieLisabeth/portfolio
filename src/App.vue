@@ -13,11 +13,14 @@
       <AboutView />
     </section>
 
+    <!-- Pass isWorkSectionVisible to WorkView -->
     <section id="work" class="section">
-      <WorkView :isVisible="isVisible.work" />
+      <WorkView :isWorkSessionVisible="isVisible.work" />
     </section>
 
-    <section id="contact" class="section"></section>
+    <section id="projects" class="section">
+      <ProjectsView />
+    </section>
   </main>
   <footer>
     <FooterBar />
@@ -37,12 +40,12 @@ import { useThemeStore } from './store'
 const HomeView = defineAsyncComponent(() => import('@/views/HomeView.vue'))
 const AboutView = defineAsyncComponent(() => import('@/views/AboutView.vue'))
 const WorkView = defineAsyncComponent(() => import('@/views/WorkView.vue'))
+const ProjectsView = defineAsyncComponent(() => import('@/views/ProjectsView.vue'))
 const ParticleMove = defineAsyncComponent(() => import('./components/animation/ParticleMove.vue'))
-// Theme store to manage current theme
+
 const themeStore = useThemeStore()
 const { currentTheme } = storeToRefs(themeStore)
 
-// Reactive variable to track if the current theme is dark
 const isDarkTheme = ref(currentTheme.value === themeStore.themes.dark)
 
 // Watch for changes in the current theme to apply styles to the body
@@ -52,22 +55,21 @@ watch(currentTheme, (newTheme) => {
   document.body.style.color = newTheme.text
 })
 
-// Toggle theme handler (triggered by the header/NavBar)
 const updateTheme = () => {
   themeStore.toggleTheme()
-  themeStore.saveThemeToSessionStorage() // Save the theme to sessionStorage
+  themeStore.saveThemeToSessionStorage()
 }
 
-// Use composable to handle scroll and section visibility (but no theme change based on scroll)
+// Use scroll visibility tracking for specific sections
 const { isVisible, showScrollAnimation } = useScroll(['home', 'about', 'work'])
 
-// Ensure the correct theme is applied when the page is loaded
 onMounted(() => {
   themeStore.loadThemeFromSessionStorage()
   document.body.style.backgroundColor = currentTheme.value.primary
   document.body.style.color = currentTheme.value.text
 })
 </script>
+
 <style scoped>
 html {
   scroll-behavior: smooth;
