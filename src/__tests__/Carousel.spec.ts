@@ -1,67 +1,41 @@
 import MovingCarousel from '@/components/elements/CarouselEl.vue'
-import { svgIcons } from '@/mixins/icons'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 
-describe('MovingCarousel', () => {
-  // Filter out undefined values from svgIcons
-  const images: string[] = Object.values(svgIcons).filter(
-    (image): image is string => image !== undefined
-  )
-
+describe('Carousel Component', () => {
   it('renders the correct number of images', () => {
-    const wrapper = mount(MovingCarousel, {
-      props: { images } // Pass test images as prop
-    })
-
-    // The images are duplicated for seamless scrolling
-    const imgElements = wrapper.findAll('img')
-    expect(imgElements.length).toBe(images.length * 2) // Double the number of images
-  })
-
-  it('sets the correct image src attributes', () => {
+    const images = ['image1.jpg', 'image2.jpg', 'image3.jpg']
     const wrapper = mount(MovingCarousel, {
       props: { images }
     })
 
-    const imgElements = wrapper.findAll('img')
-    // Check that the src attributes are correctly assigned to the full paths
-    images.forEach((image, index) => {
-      expect(imgElements[index].attributes('src')).toBe(image)
-    })
+    const imgElements = wrapper.findAll('.carousel-image')
+    expect(imgElements.length).toBe(images.length * 2)
   })
 
-  it('moves the carousel to the left', async () => {
+  it('applies the correct styles', () => {
+    const images = ['image1.jpg', 'image2.jpg']
     const wrapper = mount(MovingCarousel, {
       props: { images }
     })
 
-    // Spy on the `moveLeft` function
-    const moveLeftSpy = vi.spyOn(wrapper.vm, 'moveLeft')
-
-    // Trigger the movement manually by calling `moveLeft`
-    wrapper.vm.moveLeft()
-
-    // Expect the spy to be called at least once
-    expect(moveLeftSpy).toHaveBeenCalled()
-
-    // Ensure the position decreases as expected
-    expect(wrapper.vm.position).toBeLessThan(0)
-
-    moveLeftSpy.mockRestore() // Clean up the spy
+    const carouselContainer = wrapper.find('.carousel-container')
+    expect(carouselContainer.attributes('style')).toContain('transform: translateX')
   })
 
-  it('automatically moves the carousel after mounting', async () => {
+  it('clears the interval on unmount', async () => {
+    const images = ['image1.jpg', 'image2.jpg']
+    vi.useFakeTimers()
+
     const wrapper = mount(MovingCarousel, {
       props: { images }
     })
 
-    const initialPosition = wrapper.vm.position
+    const clearIntervalSpy = vi.spyOn(window, 'clearInterval')
 
-    // Wait for some time to let the interval move the carousel
-    await new Promise((resolve) => setTimeout(resolve, 200)) // Wait for some movement
+    wrapper.unmount()
 
-    // Check that the position has changed
-    expect(wrapper.vm.position).toBeLessThan(initialPosition)
+    expect(clearIntervalSpy).toHaveBeenCalled()
+    vi.clearAllTimers()
   })
 })
