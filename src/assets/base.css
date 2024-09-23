@@ -90,3 +90,9 @@ body {
 .light-hamburger-color {
   color: '#ffc0a9';
 }
+.dark-carousel {
+  filter: grayscale(100%);
+}
+.light-carousel {
+  filter: grayscale(1%);
+}
