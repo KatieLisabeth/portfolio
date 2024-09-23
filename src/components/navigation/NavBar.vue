@@ -2,7 +2,8 @@
   <div class="header">
     <!-- Logo -->
     <div class="logo">
-      <img src="/src/assets/logo.svg" alt="Logo" />
+      <img v-if="themeClass === 'dark-logo'" src="/src/assets/logoD.svg" alt="Logo" />
+      <img v-if="themeClass === 'light-logo'" src="/src/assets/logoL.svg" alt="Logo" />
     </div>
 
     <!-- Hamburger Menu for Mobile -->
@@ -26,7 +27,7 @@
 
 <script setup lang="ts">
 import { useThemeStore } from '@/store'
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import ThemeSwitch from '../controllers/ThemeSwitch.vue'
 
 defineProps({
@@ -35,6 +36,9 @@ defineProps({
 const emit = defineEmits(['updateTheme'])
 
 const themeStore = useThemeStore()
+const themeClass = computed(() => {
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-logo' : 'light-logo'
+})
 
 const links = reactive([
   { text: 'About me', href: '#about' },
@@ -42,7 +46,6 @@ const links = reactive([
   { text: 'Projects', href: '#projects' }
 ])
 
-// Mobile navigation state
 const isMobileNavVisible = ref(false)
 
 const toggleMobileNav = () => {
@@ -94,7 +97,8 @@ nav a {
   margin: 0 1rem;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.2s ease;
+  transition: color 0.1s ease;
+  font-family: 'Courier New', Courier, monospace;
   color: var(--primary-text);
 }
 
