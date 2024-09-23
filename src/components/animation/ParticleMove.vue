@@ -11,7 +11,7 @@ import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 const themeStore = useThemeStore()
 
 const particleColor = computed<string>(() => {
-  return themeStore.currentTheme === themeStore.themes.dark ? '#86d9ca' : '#473131'
+  return themeStore.currentTheme === themeStore.themes.dark ? '#86d9ca' : '#287ad5'
 })
 
 const particlesCanvas = ref<HTMLCanvasElement | null>(null)
@@ -157,20 +157,23 @@ onMounted(() => {
 
 <style scoped>
 .particles-container {
-  position: absolute;
-  top: 0;
   width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  /* width: 100%;
   height: 100%;
   z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background-color: transparent; */
 }
 
 .particles-canvas {
   width: 100%;
   height: 100%;
+  display: block;
   overflow: hidden;
 }
 </style>

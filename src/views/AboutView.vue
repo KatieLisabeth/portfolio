@@ -103,11 +103,6 @@ onBeforeUnmount(() => {
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
 }
 
 .container.visible {
@@ -151,8 +146,6 @@ onBeforeUnmount(() => {
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-sizing: border-box;
-  overflow: hidden;
 }
 
 .box-big1 {

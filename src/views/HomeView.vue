@@ -4,7 +4,11 @@
     <div class="content">
       <!-- Image  -->
       <figure class="photo">
-        <img src="@/assets/photo.png" alt="Photo of Katie" />
+        <img
+          v-if="themeClass === 'dark-photo'"
+          src="@/assets/images/photo.png"
+          alt="Photo of Katie"
+        />
       </figure>
       <!-- Text  -->
       <div class="text">
@@ -22,18 +26,16 @@
     <div class="mouse">
       <MouseScroll :showScroll="showScroll" />
     </div>
-
-    <ParticleMove />
   </div>
 </template>
 
 <script setup lang="ts">
 import MouseScroll from '@/components/animation/MouseScroll.vue'
-import ParticleMove from '@/components/animation/ParticleMove.vue'
 import CarouselEl from '@/components/elements/CarouselEl.vue'
 import ScriptEl from '@/components/elements/ScriptEl.vue'
 import { svgIcons } from '@/mixins/icons'
-import { ref } from 'vue'
+import { useThemeStore } from '@/store'
+import { computed, ref } from 'vue'
 
 defineProps({
   themeTextColor: {
@@ -47,6 +49,11 @@ defineProps({
 })
 
 const images = ref<string[]>(Object.values(svgIcons))
+
+const themeStore = useThemeStore()
+const themeClass = computed(() => {
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-photo' : 'light-photo'
+})
 </script>
 
 <style scoped>
@@ -81,9 +88,15 @@ const images = ref<string[]>(Object.values(svgIcons))
 }
 
 .photo img {
-  width: 400px;
+  width: 280px;
   height: auto;
   object-fit: cover;
+  box-shadow:
+    inset 0.3px 0.3px 2px #06d16f95,
+    inset -3px -3px 10px #00000066,
+    5px 5px 20px #00000033;
+  border-radius: 50%;
+  margin: 2rem;
 }
 
 .text {
@@ -92,6 +105,12 @@ const images = ref<string[]>(Object.values(svgIcons))
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 2rem;
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+  }
 }
 
 .content {

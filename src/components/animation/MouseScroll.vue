@@ -24,7 +24,6 @@ defineProps({
 })
 
 const themeStore = useThemeStore()
-
 const themeClass = computed(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? 'dark-mouse' : 'light-mouse'
 })

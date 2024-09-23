@@ -1,7 +1,5 @@
 :root {
   --primary-color: #ccd7d9;
-  --secondary-color: #c9b8b8;
-  --text-color: #3d3d3d;
   --color: rgba(28, 93, 95, 1);
 
   --color-background: var(--primary-color);
@@ -11,12 +9,21 @@
   --color-heading: var(--text-color);
   --section-gap: 160px;
   --nav-background-color: var(--primary-color);
+  --secondary-text: #c0d7d9;
+  --primary-card: rgba(25, 25, 25);
+  --secondary-card: rgba(68, 148, 141, 1);
+  --hover-color: rgba(25, 25, 25);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: rgba(68, 148, 141, 1);
-    --secondary-color: linear-gradient(93deg, rgba(84, 84, 84, 1) 5%, rgba(60, 60, 60, 1) 95%);
+    --secondary-color: linear-gradient(
+      0deg,
+      rgba(114, 124, 164, 1) 20%,
+      rgba(251, 202, 202, 1) 80%
+    );
+    --secondary-text: #099;
     --text-color: #16d287;
   }
 }
@@ -58,8 +65,8 @@ body {
 }
 
 .light-mouse {
-  --primary-color: #3d3d3d;
-  --secondary-color: #c9b8b8;
+  --primary-color: #9263e4;
+  --secondary-color: #fffccc;
 }
 
 .dark-mouse {
@@ -68,19 +75,19 @@ body {
 }
 
 .light-about {
-  --primary-color: #7c6e61;
-  --title-text: #cab8b8;
-  --description-text: #f9cbba;
+  --primary-color: rgba(68, 148, 141, 1);
+  --title-text: #fffccc;
+  --description-text: #cad8a8;
   --card-text: #ffc0a9;
-  --hover-color: rgba(75, 75, 45, 0.5);
+  --hover-color: rgba(68, 148, 141, 0.95);
 }
 
 .dark-about {
-  --primary-color: rgba(45, 45, 45, 0.8);
+  --primary-color: rgba(25, 25, 25, 0.8);
   --title-text: #cad8a8;
   --description-text: #f9cbba;
   --card-text: #ffc0a9;
-  --hover-color: rgba(25, 25, 25, 0.8);
+  --hover-color: rgba(25, 25, 25, 0.95);
   --font: 'Courier New', Courier, monospace;
 }
 
@@ -89,4 +96,24 @@ body {
 }
 .light-hamburger-color {
   color: '#ffc0a9';
+}
+.dark-carousel {
+  --dark-carousel: grayscale(100%);
+}
+.light-carousel {
+  --light-carousel: grayscale(1%);
+}
+.dark-cards {
+  --card-color1: var(--primary-card);
+  --card-color2: var(--primary-card);
+  --card-color3: var(--primary-card);
+  --card-header: #cad8a8;
+  --card-text: #16d287;
+}
+.light-cards {
+  --card-color1: var(--secondary-card);
+  --card-color2: var(--secondary-card);
+  --card-color3: var(--secondary-card);
+  --card-header: #ffc;
+  --card-text: #fff;
 }

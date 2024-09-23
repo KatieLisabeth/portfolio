@@ -1,34 +1,46 @@
 <template>
-  <div class="container">
+  <div :class="[themeClass, 'container']">
     <canvas ref="canvasRef" class="horizon-canvas"></canvas>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { useThemeStore } from '@/store'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
+const themeStore = useThemeStore()
+const themeClass = computed(() => {
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-dot' : 'light-dot'
+})
+// Canvas reference and context
 const canvasRef = ref<HTMLCanvasElement | null>(null)
-let ctx = null
-let points = []
+let ctx: CanvasRenderingContext2D | null = null
+
+// Points array and camera setup
+let points: number[][] = []
 let startY = -0.7
 const camera = { x: 0, y: 0, z: 0.8 }
 let d = 0.5
-let animationFrameId = null
-let timeoutId = null
+let animationFrameId: number | null = null
+let timeoutId: number | null = null
 
-const normalize = (max, fraction) => max * (fraction + 0.8)
+// Normalize function for canvas coordinates
+const normalize = (max: number, fraction: number): number => max * (fraction + 0.8)
 
-const generatePoints = (delta) => {
+// Function to generate points for the horizon effect
+const generatePoints = (delta: number): void => {
   points = []
   for (let i = -6; i <= 6; i += 0.1) {
     for (let j = startY + delta; j <= startY + 4 + delta; j += 0.1) {
       points.push([i, j, j - Math.sin(i + j * 4) / 8])
     }
   }
-  timeoutId = window.setTimeout(() => generatePoints(delta + 0.1), 100000)
+
+  timeoutId = window.setTimeout(() => generatePoints(delta + 0.1), 10000)
 }
 
-const update = () => {
+// Function to update and draw the points on the canvas
+const update = (): void => {
   if (canvasRef.value) {
     canvasRef.value.width = window.innerWidth
     canvasRef.value.height = window.innerHeight
@@ -38,8 +50,10 @@ const update = () => {
     camera.z -= 0.00001
     camera.y -= 0.0001
 
+    const dotColor = themeClass.value === 'dark-dot' ? '#fcaa4E' : '#287ad5'
+
     const projectedPoints = points.map((point) => {
-      let z = point[2] + camera.z
+      const z = point[2] + camera.z
       let x = (point[0] * -d) / z
       let y = ((point[1] + camera.y) * -d) / z
 
@@ -55,16 +69,17 @@ const update = () => {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
 
     projectedPoints.forEach((point) => {
-      ctx.fillStyle = '#fcaa4E'
-      ctx.beginPath()
-      ctx.arc(point[0], point[1], Math.max(2 / point[2], 0), 0, 2 * Math.PI)
-      ctx.fill()
+      ctx!.fillStyle = dotColor
+      ctx!.beginPath()
+      ctx!.arc(point[0], point[1], Math.max(2 / point[2], 0), 0, 2 * Math.PI)
+      ctx!.fill()
     })
   }
 
   animationFrameId = requestAnimationFrame(update)
 }
 
+// Lifecycle hooks to manage canvas rendering
 onMounted(() => {
   const canvas = canvasRef.value
   if (canvas) {
@@ -97,9 +112,6 @@ onBeforeUnmount(() => {
   height: 100vh; /* Full viewport height */
   overflow: hidden; /* Ensure no scrollbar from canvas content */
   z-index: -1; /* Place it behind any content */
-  /* position: absolute;
-  width: 100vw;
-  height: 100vh; */
 }
 
 .horizon-canvas {

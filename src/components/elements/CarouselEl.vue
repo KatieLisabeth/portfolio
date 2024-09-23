@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel-wrapper">
+  <div :class="[themeClass, 'carousel-wrapper']">
     <div class="carousel-container" :style="{ transform: `translateX(${position}px)` }">
       <img
         v-for="(image, index) in repeatedImages"
@@ -13,8 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, type PropType } from 'vue'
-
+import { useThemeStore } from '@/store'
+import { computed, onBeforeUnmount, onMounted, ref, type PropType } from 'vue'
+const themeStore = useThemeStore()
+const themeClass = computed(() => {
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-carousel' : 'light-carousel'
+})
 const props = defineProps({
   images: {
     type: Array as PropType<string[]>,
@@ -24,7 +28,6 @@ const props = defineProps({
 })
 
 const repeatedImages = ref([...props.images, ...props.images])
-
 const position = ref<number>(0)
 
 const imageWidth = 120
@@ -66,7 +69,7 @@ onBeforeUnmount(() => {
 .carousel-image {
   width: 100px;
   margin: 15px;
-  filter: grayscale(100%);
+  filter: var(--dark-carousel);
   transition: filter 0.3s ease;
 }
 
