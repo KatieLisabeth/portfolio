@@ -25,9 +25,7 @@
 <script setup lang="ts">
 import gitHubIcon from '@/assets/icons/gith.svg'
 import linkedInIcon from '@/assets/icons/linkedin.svg'
-import { useThemeStore } from '@/store'
 
-const themeStore = useThemeStore()
 const socialLinks = [
   {
     name: 'LinkedIn',
