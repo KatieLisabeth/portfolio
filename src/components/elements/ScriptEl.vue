@@ -1,16 +1,11 @@
 <template>
   <div class="container">
-    <h2 class="script" :style="{ color: themeStore.currentTheme.text }">
-      {{ displayedText
-      }}<span class="cursor" :style="{ color: themeStore.currentTheme.text }">|</span>
-    </h2>
+    <h2 class="script">{{ displayedText }}<span class="cursor">|</span></h2>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-const themeStore = useThemeStore()
 
 const words = [
   "I'm passionate developer with a deep love for coding",
@@ -78,9 +73,11 @@ onBeforeUnmount(() => {
 }
 
 .script {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: bold;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  transition: color 0.1s ease;
+  color: var(--primary-text);
   text-align: left;
   word-break: break-word;
   overflow-wrap: break-word;
