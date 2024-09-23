@@ -103,21 +103,27 @@ watch(
   align-items: flex-start;
   justify-content: flex-end;
   position: relative;
-
-  transform: translateY(20px) scale(0.95);
+  transform: translateY(2px) scale(1);
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
+  li {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--secondary-text);
+    font-weight: 800;
+  }
 }
 
 .timeline-item.left .timeline-content {
   margin-right: auto;
   text-align: right;
+  width: 45%;
 }
 
 .timeline-item.right .timeline-content {
   margin-left: auto;
   text-align: left;
+  width: 45%;
 }
 
 .timeline-icon {
@@ -155,18 +161,21 @@ watch(
   color: #d6c1c1;
   font-size: 14px;
   margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 5px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .company {
   font-size: 16px;
   font-weight: 600;
   color: #bbb;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 @keyframes slideInFromLeft {
