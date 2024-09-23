@@ -61,7 +61,6 @@ const timelineItems = ref([
   }
 ])
 
-// Theme-related logic
 const themeStore = useThemeStore()
 const themeClass = computed(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? 'dark-card' : 'light-card'
@@ -79,6 +78,7 @@ const themeClass = computed(() => {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2rem;
+  font-weight: 700;
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -88,7 +88,6 @@ const themeClass = computed(() => {
   position: relative;
 }
 
-/* Timeline vertical line */
 .timeline-container::before {
   content: '';
   position: absolute;
@@ -102,11 +101,10 @@ const themeClass = computed(() => {
 
 @media (max-width: 1400px) {
   .timeline-container::before {
-    width: 3px; /* Slightly thicker vertical line */
+    width: 3px;
   }
 }
 
-/* Media Query for screens smaller than 768px */
 @media (max-width: 768px) {
   .timeline-container::before {
     left: 1rem;
