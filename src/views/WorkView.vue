@@ -25,38 +25,52 @@ defineProps({
 const timelineItems = ref([
   {
     title: 'Front-end Developer',
-    companyName: 'Tech Solutions Inc.',
-    icon: 'https://via.placeholder.com/50',
-    iconBg: '#a22156',
-    date: 'Jan 2021 - Present',
+    companyName: 'Futureproofed part of Sweco',
+    icon: '/src/assets/work_images/futureproofed.png',
+    iconBg: '#fc4c4c',
+    date: 'Apr 2023 - Jun 2024',
     points: [
-      'Developed and maintained the front-end for various client projects.',
-      'Worked closely with the design team to implement responsive UI/UX.',
-      'Optimized performance for the web applications, improving load times by 30%.'
+      'Contribution: Developed internal tool for cities and business, building sustainability roadmaps using a SaaS software approach.',
+      'Development: Created dynamic cloud-based applications with Vue and TypeScript, utilizing SCSS for styling and Bootstrap.',
+      'Delivery: Released updates through GitHub deployment.',
+      'Aftercare: Provided iterative support and fine-tuning within a Scrum framework.',
+      'Contact: Serge de Gheldere, CEO Futureproofed - serge.degheldere@swecobelgium.be'
     ]
   },
   {
-    title: 'Software Engineer',
-    companyName: 'Innovative Softwares',
-    icon: 'https://via.placeholder.com/50',
-    iconBg: '#E6DEDD',
-    date: 'Feb 2019 - Dec 2020',
+    title: 'Junior Front-end',
+    companyName: 'Wellbeing.ai',
+    icon: '/src/assets/work_images/wellbeing.png',
+    iconBg: '#fc4c4c',
+    date: 'Nov 2022 - Jan 2023',
     points: [
-      'Built and deployed highly scalable SaaS solutions using modern web technologies.',
-      'Collaborated with cross-functional teams to deliver robust software applications.',
-      'Mentored junior developers and conducted code reviews to ensure high-quality code.'
+      'Contribution: Developed internal tool to streamline business client report management, leveraging a SaaS model for optimal efficiency.',
+      'Development: coded and styled dynamic components utilizing React, TypeScript, and SCSS, integrated seamlessly with web services.',
+      'Contact: Laurent Tornhout, CEO at Wellbeing.ai - laurent.van.tornhout@wellbeing.ai'
     ]
   },
   {
-    title: 'Junior Developer',
-    companyName: 'Web Dev Studios',
-    icon: 'https://via.placeholder.com/50',
-    iconBg: '#D9D9D9',
-    date: 'Jun 2017 - Jan 2019',
+    title: 'Junior Front-end Developer',
+    companyName: 'One Punch Agency',
+    icon: '/src/assets/work_images/onepunch.png',
+    iconBg: '#fc4c4c',
+    date: 'Aug 2022 - Nov 2022',
     points: [
-      'Assisted in the development of e-commerce websites and web applications.',
-      'Fixed bugs and optimized code for better performance.',
-      'Learned and implemented new web technologies in client projects.'
+      'Development: dynamic React components with Chakra-UI integration, enhancing web service interactions.',
+      'Contact: Chatchai Sribunruang, CEO OnePunchAgency - chatchai@onepunch.agency'
+    ]
+  },
+  {
+    title: 'Developer Analyst VRT',
+    companyName: 'VRT',
+    icon: '/src/assets/work_images/vrt.png',
+    iconBg: '#fc4c4c',
+    date: 'Jun 2021 - May 2022',
+    points: [
+      'Development: Developed dynamic components using React , Typescript and CSS, integrated with web services. Ensured software reliability through comprehensive unit and end-to-end testing protocols.',
+      'Delivery: Streamlined software deployment process by releasing new versions via Jenkins.',
+      'Aftercare: Provided interactive support and optimization within a Scrum framework.',
+      'Contact: Ruben Causyn, Team Lead VRTNU/Radio - ruben.causyn@vrt.be'
     ]
   }
 ])
