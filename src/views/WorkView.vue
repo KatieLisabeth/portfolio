@@ -26,7 +26,7 @@ const timelineItems = ref([
   {
     title: 'Front-end Developer',
     companyName: 'Futureproofed part of Sweco',
-    icon: '/src/assets/work_images/futureproofed.png',
+    icon: '/src/assets/images/futureproofed.png',
     iconBg: '#fc4c4c',
     date: 'Apr 2023 - Jun 2024',
     points: [
@@ -40,7 +40,7 @@ const timelineItems = ref([
   {
     title: 'Junior Front-end',
     companyName: 'Wellbeing.ai',
-    icon: '/src/assets/work_images/wellbeing.png',
+    icon: '/src/assets/images/wellbeing.png',
     iconBg: '#fc4c4c',
     date: 'Nov 2022 - Jan 2023',
     points: [
@@ -52,7 +52,7 @@ const timelineItems = ref([
   {
     title: 'Junior Front-end Developer',
     companyName: 'One Punch Agency',
-    icon: '/src/assets/work_images/onepunch.png',
+    icon: '/src/assets/images/onepunch.png',
     iconBg: '#fc4c4c',
     date: 'Aug 2022 - Nov 2022',
     points: [
@@ -63,7 +63,7 @@ const timelineItems = ref([
   {
     title: 'Developer Analyst VRT',
     companyName: 'VRT',
-    icon: '/src/assets/work_images/vrt.png',
+    icon: '/src/assets/images/vrt.png',
     iconBg: '#fc4c4c',
     date: 'Jun 2021 - May 2022',
     points: [
