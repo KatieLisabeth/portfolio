@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer :class="[themeClass, 'footer']">
     <div class="footer-content">
       <div class="footer-left">
         <p>Terms & Conditions | Privacy Policy</p>
@@ -25,6 +25,8 @@
 <script setup lang="ts">
 import gitHubIcon from '@/assets/icons/gith.svg'
 import linkedInIcon from '@/assets/icons/linkedin.svg'
+import { useThemeStore } from '@/store'
+import { computed } from 'vue'
 
 const socialLinks = [
   {
@@ -34,6 +36,10 @@ const socialLinks = [
   },
   { name: 'GitHub', url: 'https://github.com/KatieLisabeth', icon: gitHubIcon }
 ]
+const themeStore = useThemeStore()
+const themeClass = computed(() => {
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark' : 'light'
+})
 </script>
 
 <style scoped>
@@ -80,7 +86,7 @@ const socialLinks = [
   transition:
     transform 0.2s ease-in-out,
     filter 0.3s ease;
-  filter: grayscale(100%);
+  filter: var(--dark);
 }
 
 .social-icon:hover {

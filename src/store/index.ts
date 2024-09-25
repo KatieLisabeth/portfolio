@@ -16,8 +16,8 @@ const themes: Themes = {
   light: {
     secondary:
       'linear-gradient(93deg, rgba(142,141,138,1) 5%, rgba(216,195,165,1) 52%, rgba(142,141,138,1) 95%)',
-    primary: 'linear-gradient(0deg, rgba(251,254,254,1) 61%, rgba(228,255,144,1) 100%)',
-    text: '#4433c4'
+    primary: '#fff',
+    text: 'rgba(68,148,131,1)'
   },
   dark: {
     secondary:

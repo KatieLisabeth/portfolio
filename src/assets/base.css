@@ -97,11 +97,11 @@ body {
 .light-hamburger-color {
   color: '#ffc0a9';
 }
-.dark-carousel {
-  --dark-carousel: grayscale(100%);
+.dark {
+  --dark: grayscale(100%);
 }
-.light-carousel {
-  --light-carousel: grayscale(1%);
+.light {
+  --light: grayscale(1%);
 }
 .dark-cards {
   --card-color1: var(--primary-card);

@@ -18,6 +18,8 @@
       <a v-for="link in links" :key="link.text" :href="link.href">
         {{ link.text }}
       </a>
+      <router-link to="/resume" rel="noopener noreferrer"> CV </router-link>
+
       <div class="theme-switch">
         <ThemeSwitch :isDarkTheme="isDarkTheme" @updateTheme="emit('updateTheme')" />
       </div>

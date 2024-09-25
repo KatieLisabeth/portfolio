@@ -22,7 +22,8 @@
 
       <ul class="points">
         <li v-for="(point, idx) in item.points" :key="`point-${idx}`">
-          {{ point }}
+          <h3>{{ getFirstWord(point) }}</h3>
+          {{ getRestOfWords(point) }}
         </li>
       </ul>
     </div>
@@ -70,6 +71,13 @@ onMounted(() => {
     { threshold: 0.1 }
   )
 })
+const getFirstWord = (text: string): string => {
+  return text.split(' ')[0]
+}
+
+const getRestOfWords = (text: string): string => {
+  return text.split(' ').slice(1).join(' ')
+}
 
 onBeforeUnmount(() => {
   timelineRefs.value.forEach((el) => {
@@ -107,10 +115,14 @@ watch(
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
-  li {
-    font-family: 'Courier New', Courier, monospace;
-    color: var(--secondary-text);
+}
+
+.timeline-item .points {
+  list-style: none;
+  font-family: 'Courier New', Courier, monospace;
+  h3 {
     font-weight: 800;
+    font-size: 1rem;
   }
 }
 
@@ -135,15 +147,16 @@ watch(
   justify-content: center;
   position: absolute;
   left: 50%;
-  top: 0;
+  top: -0.5rem;
   transform: translateX(-50%);
   z-index: 2;
 }
 
 .icon-image {
-  width: 50%;
-  height: 50%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: fit;
+  border-radius: 50%;
 }
 
 .timeline-container::before {
@@ -154,7 +167,7 @@ watch(
   transform: translateX(-50%);
   width: 3px;
   height: 100%;
-  background: #e8e8e8;
+  background: var(--hover-color);
 }
 
 .date {

@@ -17,7 +17,7 @@ import { useThemeStore } from '@/store'
 import { computed, onBeforeUnmount, onMounted, ref, type PropType } from 'vue'
 const themeStore = useThemeStore()
 const themeClass = computed(() => {
-  return themeStore.currentTheme === themeStore.themes.dark ? 'dark-carousel' : 'light-carousel'
+  return themeStore.currentTheme === themeStore.themes.dark ? 'dark' : 'light'
 })
 const props = defineProps({
   images: {
@@ -69,7 +69,7 @@ onBeforeUnmount(() => {
 .carousel-image {
   width: 100px;
   margin: 15px;
-  filter: var(--dark-carousel);
+  filter: var(--dark);
   transition: filter 0.3s ease;
 }
 
