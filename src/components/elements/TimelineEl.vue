@@ -167,7 +167,7 @@ watch(
   transform: translateX(-50%);
   width: 3px;
   height: 100%;
-  background: #e8e8e8;
+  background: var(--hover-color);
 }
 
 .date {
