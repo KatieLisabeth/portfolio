@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #ccd7d9;
-  --color: rgba(28, 93, 95, 1);
+  --primary-color: #01041f;
+  --color: rgba(28, 193, 95, 1);
 
   --color-background: var(--primary-color);
   --color-background-soft: var(--secondary-color);
@@ -13,16 +13,12 @@
   --primary-card: rgba(25, 25, 25);
   --secondary-card: rgba(68, 148, 141, 1);
   --hover-color: rgba(25, 25, 25);
+  --text-color: rgba(68, 148, 141, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: rgba(68, 148, 141, 1);
-    --secondary-color: linear-gradient(
-      0deg,
-      rgba(114, 124, 164, 1) 20%,
-      rgba(251, 202, 202, 1) 80%
-    );
     --secondary-text: #099;
     --text-color: #16d287;
   }
@@ -37,14 +33,16 @@
   font-weight: normal;
 }
 
+html,
 body {
-  min-height: 100vh;
-  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
   background: var(--primary-color);
   transition:
     background 0.5s ease,
     color 0.5s ease;
   line-height: 1.6;
+  scroll-behavior: smooth;
   font-family:
     Inter,
     -apple-system,
