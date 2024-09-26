@@ -5,13 +5,14 @@
 </template>
 
 <script setup lang="ts">
+import { useGlobalStore } from '@/stores/useGlobalStore'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const words = [
-  "I'm passionate developer with a deep love for coding",
-  'I specialize in creating responsive, user-friendly websites, seamlessly blending animation and design to bring ideas to life.',
-  "I thrive on harnessing the power of frontend frameworks and backend logic, and I'm driven by the endless opportunities for learning and growth in the tech world."
-]
+const globalStore = useGlobalStore()
+const { t } = useI18n()
+
+const words = globalStore.words
 
 const currentWordIndex = ref(0)
 const displayedText = ref('')
@@ -45,13 +46,15 @@ const deleteLetters = (word: string) => {
     } else {
       clearInterval(deletingInterval)
       currentWordIndex.value = (currentWordIndex.value + 1) % words.length
-      typeLetters(words[currentWordIndex.value])
+      const translatedWord = t(words[currentWordIndex.value])
+      typeLetters(translatedWord)
     }
   }, 100)
 }
 
 onMounted(() => {
-  typeLetters(words[currentWordIndex.value])
+  const translatedWord = t(words[currentWordIndex.value])
+  typeLetters(translatedWord)
 })
 
 // Cleanup
