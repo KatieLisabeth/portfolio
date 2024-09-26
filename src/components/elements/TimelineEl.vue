@@ -22,8 +22,8 @@
 
       <ul class="points">
         <li v-for="(point, idx) in item.points" :key="`point-${idx}`">
-          <h3>{{ getFirstWord(point) }}</h3>
-          {{ getRestOfWords(point) }}
+          <h3>{{ getFirstWord($t(point)) }}</h3>
+          {{ getRestOfWords($t(point)) }}
         </li>
       </ul>
     </div>
@@ -241,8 +241,8 @@ watch(
   }
 
   .icon-image {
-    width: 95%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
   }
 
   .timeline-container::before {
