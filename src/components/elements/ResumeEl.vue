@@ -14,7 +14,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const redirectToHome = () => {
-  router.push('/') // Vue Router navigation to home
+  router.push('/')
 }
 </script>
 
@@ -35,9 +35,9 @@ const redirectToHome = () => {
   position: absolute;
   top: 15px;
   right: 180px;
-  z-index: 10000; /* Ensure the button is on top of the iframe */
-  background-color: #007bff;
-  color: white;
+  z-index: 10000;
+  background-color: transparent;
+  color: var(--color-heading);
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -46,7 +46,7 @@ const redirectToHome = () => {
 }
 
 .overlay-button:hover {
-  background-color: #0056b3;
+  background-color: rgba(60, 60, 60, 0.483);
 }
 
 iframe {
