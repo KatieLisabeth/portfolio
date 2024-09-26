@@ -3,5 +3,36 @@
     "work_experience": "Work experience",
     "projects": "Projects",
     "resume": "CV",
-    "switch_language": "NL"
+    "back": "Go back",
+    "hello_im": "Hello I'm Katie",
+    "profile": "Highly motivated and reliable Front-end developer, dedicated to deliver results-oriented solutions. Able to work independently on smaller projects, as well as collaborate in a team environment on larger codebases. With solid experience in developing Software as a service (SaaS). Immediately available.",
+    "passionStatement1": "I'm a passionate developer with a deep love for coding.",
+    "passionStatement2": "I specialize in creating responsive, user-friendly websites, seamlessly blending animation and design to bring ideas to life.",
+    "passionStatement3": "I thrive on harnessing the power of frontend frameworks and backend logic, and I'm driven by the endless opportunities for learning and growth in the tech world.",
+    "employment_history": "Employment History",
+    "download": "Download",
+    "profile_title": "profile",
+    "courses_title": "courses",
+    "details_title": "details",
+    "skills_title": "skills",
+    "work": {
+        "sweco": {
+            "point1": "Contribution: Developed internal tool for cities and business, building sustainability roadmaps using a SaaS software approach.",
+            "point2": "Development: Created dynamic cloud-based applications with Vue and TypeScript, utilizing SCSS for styling and Bootstrap.",
+            "point3": "Delivery: Released updates through GitHub deployment.",
+            "point4": "Aftercare: Provided iterative support and fine-tuning within a Scrum framework."
+        },
+        "wellbeing": {
+            "point1": "Contribution: Developed internal tool to streamline business client report management, leveraging a SaaS model for optimal efficiency.",
+            "point2": "Development: Coded and styled dynamic components utilizing React, TypeScript, and SCSS, integrated seamlessly with web services."
+        },
+        "onePunch": {
+            "point1": "Development: Dynamic React components with Chakra-UI integration, enhancing web service interactions."
+        },
+        "vrt": {
+            "point1": "Development: Developed dynamic components using React, TypeScript, and CSS, integrated with web services. Ensured software reliability through comprehensive unit and end-to-end testing protocols.",
+            "point2": "Delivery: Streamlined software deployment process by releasing new versions via Jenkins.",
+            "point3": "Aftercare: Provided interactive support and optimization within a Scrum framework."
+        }
+    }
 }

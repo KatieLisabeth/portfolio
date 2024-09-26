@@ -1,11 +1,20 @@
 <template>
   <div class="container">
-    <header>
-      <h1>Centered Header</h1>
-    </header>
+    <div class="header">
+      <h1>Kateryna Lisabeth</h1>
+      <p>FRONT-END DEVELOPER</p>
+    </div>
     <div class="columns">
       <div class="col1">
+        <div>
+          <h2>{{ $t('details_title').toUpperCase() }}</h2>
+          <p>Vilvoorde, Belgium</p>
+          <p>
+            <a href="mailto:katie_lisabeth@yahoo.com">katie_lisabeth@yahoo.com</a>
+          </p>
+        </div>
         <div class="skills-container">
+          <h2>{{ $t('skills_title').toUpperCase() }}</h2>
           <div v-for="(skill, index) in skills" :key="index" class="skill">
             <h4>{{ skill.name }}</h4>
             <div class="skill-bar">
@@ -16,15 +25,11 @@
       </div>
       <div class="col2">
         <!-- Specific text for second column -->
-        <h2>PROFIEL</h2>
+        <h2>{{ $t('profile_title').toUpperCase() }}</h2>
         <p>
-          Als zeer gemotiveerde en betrouwbare front-end ontwikkelaar ben ik volledig toegewijd aan
-          het leveren van resultaatgerichte oplossingen. Ik beschik over het vermogen om zelfstandig
-          aan de slag te gaan met kleinere projecten en heb tegelijkertijd de teamgeest om effectief
-          samen te werken aan omvangrijkere codebases. Met mijn gedegen ervaring in de ontwikkeling
-          van Software as a Service (SaaS) sta ik klaar om direct waarde toe te voegen aan uw team.
+          {{ $t(profile) }}
         </p>
-        <h2>EMPLOYMENT HISTORY</h2>
+        <h2>{{ $t('employment_history').toUpperCase() }}</h2>
         <div
           v-for="(item, index) in items"
           :key="index"
@@ -40,82 +45,28 @@
             <span class="date">{{ item.date }}</span>
             <ul class="points">
               <li v-for="(point, idx) in item.points" :key="`point-${idx}`">
-                {{ getFirstWord(point) }} {{ getRestOfWords(point) }}
+                {{ getFirstWord($t(point)) }} {{ getRestOfWords($t(point)) }}
               </li>
             </ul>
           </div>
         </div>
-        <h2>COURSES</h2>
+        <h2>{{ $t('courses_title').toUpperCase() }}</h2>
+        <span class="date">Jan 2020 - Aug 2020</span>
+        <p>HYF Belgium - Fullstack developer</p>
       </div>
     </div>
-
-    <a :href="pdfUrl" download="Kateryna_Lisabeth-Resume.pdf" class="download-button"
-      >Download Resume</a
-    >
   </div>
 </template>
 
 <script setup lang="ts">
-import pdfUrl from '@/assets/pdfs/EN.pdf'
-import { ref } from 'vue'
-const skills = ref([
-  { name: 'HTML', level: 90 },
-  { name: 'CSS', level: 80 },
-  { name: 'JavaScript', level: 75 },
-  { name: 'Vue.js', level: 85 }
-])
-const items = ref([
-  {
-    title: 'Front-end Developer',
-    companyName: 'Futureproofed part of Sweco',
-    icon: '/src/assets/images/futureproofed.png',
-    iconBg: '#fc4c4c',
-    date: 'Apr 2023 - Jun 2024',
-    points: [
-      'Contribution: Developed internal tool for cities and business, building sustainability roadmaps using a SaaS software approach.',
-      'Development: Created dynamic cloud-based applications with Vue and TypeScript, utilizing SCSS for styling and Bootstrap.',
-      'Delivery: Released updates through GitHub deployment.',
-      'Aftercare: Provided iterative support and fine-tuning within a Scrum framework.',
-      'Contact: Serge de Gheldere, CEO Futureproofed - serge.degheldere@swecobelgium.be'
-    ]
-  },
-  {
-    title: 'Junior Front-end',
-    companyName: 'Wellbeing.ai',
-    icon: '/src/assets/images/wellbeing.png',
-    iconBg: '#fc4c4c',
-    date: 'Nov 2022 - Jan 2023',
-    points: [
-      'Contribution: Developed internal tool to streamline business client report management, leveraging a SaaS model for optimal efficiency.',
-      'Development: coded and styled dynamic components utilizing React, TypeScript, and SCSS, integrated seamlessly with web services.',
-      'Contact: Laurent Tornhout, CEO at Wellbeing.ai - laurent.van.tornhout@wellbeing.ai'
-    ]
-  },
-  {
-    title: 'Junior Front-end Developer',
-    companyName: 'One Punch Agency',
-    icon: '/src/assets/images/onepunch.png',
-    iconBg: '#fc4c4c',
-    date: 'Aug 2022 - Nov 2022',
-    points: [
-      'Development: dynamic React components with Chakra-UI integration, enhancing web service interactions.',
-      'Contact: Chatchai Sribunruang, CEO OnePunchAgency - chatchai@onepunch.agency'
-    ]
-  },
-  {
-    title: 'Developer Analyst VRT',
-    companyName: 'VRT',
-    icon: '/src/assets/images/vrt.png',
-    iconBg: '#fc4c4c',
-    date: 'Jun 2021 - May 2022',
-    points: [
-      'Development: Developed dynamic components using React , Typescript and CSS, integrated with web services. Ensured software reliability through comprehensive unit and end-to-end testing protocols.',
-      'Delivery: Streamlined software deployment process by releasing new versions via Jenkins.',
-      'Aftercare: Provided interactive support and optimization within a Scrum framework.',
-      'Contact: Ruben Causyn, Team Lead VRTNU/Radio - ruben.causyn@vrt.be'
-    ]
-  }
-])
+import { useGlobalStore } from '@/stores/useGlobalStore'
+
+const globalStore = useGlobalStore()
+
+const skills = globalStore.skills
+const items = globalStore.work
+const profile = globalStore.profile
+
 const getFirstWord = (text: string): string => {
   return text.split(' ')[0]
 }
@@ -133,14 +84,12 @@ const getRestOfWords = (text: string): string => {
   padding: 20px;
 }
 
-/* Centered header styling */
-header {
+.header {
   text-align: center;
-  margin-bottom: 20px;
-  background-color: #f2f2f2;
+  background-color: #d4d3d3;
+  color: #524f4f;
 }
 
-/* Flexbox for columns */
 .columns {
   display: flex;
 }
@@ -151,6 +100,10 @@ header {
   flex: 0 0 300px;
   padding: 10px;
   background-color: #f2f2f2;
+  color: #524f4f;
+  h2 {
+    text-align: center;
+  }
 }
 
 /* Second column */

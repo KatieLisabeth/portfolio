@@ -3,5 +3,36 @@
     "work_experience": "Werkervaring",
     "projects": "Projecten",
     "resume": "CV",
-    "switch_language": "EN"
+    "back": "Ga terug",
+    "hello_im": "Hallo ik ben Katie",
+    "profile": "Als zeer gemotiveerde en betrouwbare front-end ontwikkelaar ben ik volledig toegewijd aan het leveren van resultaatgerichte oplossingen. Ik beschik over het vermogen om zelfstandig aan de slag te gaan met kleinere projecten en heb tegelijkertijd de teamgeest om effectief samen te werken aan omvangrijkere codebases. Met mijn gedegen ervaring in de ontwikkeling van Software as a Service (SaaS) sta ik klaar om direct waarde toe te voegen aan uw team.",
+    "passionStatement1": "Ik ben een gepassioneerde ontwikkelaar met een diepe liefde voor coderen.",
+    "passionStatement2": "Ik specialiseer me in het maken van responsieve, gebruiksvriendelijke websites, waarbij ik naadloos animatie en ontwerp combineer om ideeën tot leven te brengen.",
+    "passionStatement3": "Ik gedij op het benutten van de kracht van frontend-frameworks en backend-logica, en ik word gedreven door de eindeloze mogelijkheden voor leren en groei in de tech-wereld.",
+    "employment_history": "Werkgeschiedenis",
+    "download": "Downloaden",
+    "profile_title": "profiel",
+    "courses_title": "cursussen",
+    "details_title": "details",
+    "skills_title": "vaardigheden",
+    "work": {
+        "sweco": {
+            "point1": "Bijdrage: Ontwikkelde intern hulpmiddel voor steden en bedrijven, waarbij duurzaamheidsroutes werden opgesteld met behulp van een SaaS-softwarebenadering.",
+            "point2": "Ontwikkeling: Creëerde dynamische cloudgebaseerde applicaties met Vue en TypeScript, met SCSS voor styling en Bootstrap.",
+            "point3": "Levering: Updates uitgebracht via GitHub-implementatie.",
+            "point4": "Nazorg: Biedt iteratieve ondersteuning en verfijning binnen een Scrum-raamwerk."
+        },
+        "wellbeing": {
+            "point1": "Bijdrage: Ontwikkelde intern hulpmiddel om het beheer van bedrijfsrapporten te stroomlijnen, met gebruikmaking van een SaaS-model voor optimale efficiëntie.",
+            "point2": "Ontwikkeling: Coded en gestileerde dynamische componenten met behulp van React, TypeScript en SCSS, naadloos geïntegreerd met webservices."
+        },
+        "onePunch": {
+            "point1": "Ontwikkeling: Dynamische React-componenten met Chakra-UI-integratie, die de interactie met webservices verbeteren."
+        },
+        "vrt": {
+            "point1": "Ontwikkeling: Ontwikkelde dynamische componenten met behulp van React, TypeScript en CSS, geïntegreerd met webservices. Zorgde voor softwarebetrouwbaarheid door uitgebreide unit- en end-to-end testprotocollen.",
+            "point2": "Levering: Gestroomlijnd software-implementatieproces door nieuwe versies uit te brengen via Jenkins.",
+            "point3": "Nazorg: Biedt interactieve ondersteuning en optimalisatie binnen een Scrum-raamwerk."
+        }
+    }
 }
