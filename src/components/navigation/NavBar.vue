@@ -19,7 +19,8 @@
         {{ $t(link.text) }}
       </a>
       <router-link to="/resume" rel="noopener noreferrer">{{ $t('resume') }}</router-link>
-      <button class="language" @click="toggleLocale">{{ $t('switch_language') }}</button>
+      <LanguageSwitch />
+      <!-- <button class="language" @click="toggleLocale">{{ $t('switch_language') }}</button> -->
       <div class="theme-switch">
         <ThemeSwitch :isDarkTheme="isDarkTheme" @updateTheme="emit('updateTheme')" />
       </div>
@@ -27,10 +28,11 @@
   </div>
 </template>
 <script setup lang="ts">
+import LanguageSwitch from '@/controllers/LanguageSwitch.vue'
+import ThemeSwitch from '@/controllers/ThemeSwitch.vue'
 import { useThemeStore } from '@/store'
 import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import ThemeSwitch from '../controllers/ThemeSwitch.vue'
 const { locale } = useI18n()
 
 defineProps({
