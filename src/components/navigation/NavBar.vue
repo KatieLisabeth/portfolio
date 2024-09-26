@@ -56,10 +56,6 @@ const isMobileNavVisible = ref(false)
 const toggleMobileNav = () => {
   isMobileNavVisible.value = !isMobileNavVisible.value
 }
-
-const toggleLocale = () => {
-  locale.value = locale.value === 'en-US' ? 'nl-NL' : 'en-US'
-}
 </script>
 
 <style scoped>
