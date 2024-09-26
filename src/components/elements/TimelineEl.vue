@@ -167,11 +167,11 @@ watch(
   transform: translateX(-50%);
   width: 3px;
   height: 100%;
-  background: var(--hover-color);
+  color: var(--hover-color);
 }
 
 .date {
-  color: #d6c1c1;
+  color: #af9c9c;
   font-size: 14px;
   margin-bottom: 10px;
   font-family: 'Courier New', Courier, monospace;
@@ -241,12 +241,12 @@ watch(
   }
 
   .icon-image {
-    width: 60%;
-    height: 60%;
+    width: 95%;
+    height: 95%;
   }
 
   .timeline-container::before {
-    width: 5px;
+    width: 4px;
   }
 }
 
@@ -265,10 +265,11 @@ watch(
     justify-content: flex-start;
     flex-direction: column; /* Stack the icon and content vertically */
     align-items: center;
+    left: 2rem;
   }
 
   .timeline-icon {
-    left: 0;
+    left: -3rem;
     margin-bottom: 5rem;
     transform: none;
   }
