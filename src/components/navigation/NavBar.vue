@@ -30,10 +30,8 @@
 <script setup lang="ts">
 import LanguageSwitch from '@/controllers/LanguageSwitch.vue'
 import ThemeSwitch from '@/controllers/ThemeSwitch.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, reactive, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-const { locale } = useI18n()
 
 defineProps({
   isDarkTheme: Boolean
@@ -47,8 +45,8 @@ const themeClass = computed(() => {
 
 const links = reactive([
   { text: 'about_me', href: '#about' },
-  { text: 'work_experience', href: '#work' },
-  { text: 'projects', href: '#projects' }
+  { text: 'work_experience', href: '#work' }
+  // { text: 'projects', href: '#projects' }
 ])
 
 const isMobileNavVisible = ref(false)
@@ -131,7 +129,6 @@ nav .language {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(red);
     flex-direction: column;
     align-items: center;
     display: none;

@@ -34,7 +34,7 @@ import MouseScroll from '@/components/animation/MouseScroll.vue'
 import CarouselEl from '@/components/elements/CarouselEl.vue'
 import ScriptEl from '@/components/elements/ScriptEl.vue'
 import { svgIcons } from '@/mixins/carousel_icons'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, ref } from 'vue'
 
 defineProps({

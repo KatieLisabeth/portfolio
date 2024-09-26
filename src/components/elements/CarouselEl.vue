@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onBeforeUnmount, onMounted, ref, type PropType } from 'vue'
 const themeStore = useThemeStore()
 const themeClass = computed(() => {

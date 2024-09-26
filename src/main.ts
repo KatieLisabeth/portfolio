@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/main.css'
 import router from './router'
-import { useThemeStore } from './store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { i18n } from './utils/i18n'
 
 const app = createApp(App)

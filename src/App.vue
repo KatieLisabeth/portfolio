@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import FooterBar from '@/components/navigation/FooterBar.vue'
 import NavBar from '@/components/navigation/NavBar.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { storeToRefs } from 'pinia'
 import { onMounted, ref, watch } from 'vue'
 

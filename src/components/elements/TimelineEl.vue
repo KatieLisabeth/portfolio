@@ -263,7 +263,7 @@ watch(
 
   .timeline-item {
     justify-content: flex-start;
-    flex-direction: column; /* Stack the icon and content vertically */
+    flex-direction: column;
     align-items: center;
     left: 2rem;
   }

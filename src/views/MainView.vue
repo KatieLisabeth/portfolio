@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { useScroll } from '@/utils/useScroll'
 import { storeToRefs } from 'pinia'
 import { defineAsyncComponent } from 'vue'

@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import MovingHorizon from '@/components/animation/MovingHorizon.vue'
 import TimelineEl from '@/components/elements/TimelineEl.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, ref } from 'vue'
 
 defineProps({
