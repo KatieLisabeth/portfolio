@@ -5,14 +5,14 @@
 </template>
 
 <script setup lang="ts">
-import { useGlobalStore } from '@/stores/useGlobalStore'
+import { useContentStore } from '@/stores/useContentStore'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const globalStore = useGlobalStore()
+const contentStore = useContentStore()
 const { t } = useI18n()
 
-const words = globalStore.words
+const words = contentStore.words
 
 const currentWordIndex = ref(0)
 const displayedText = ref('')

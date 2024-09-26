@@ -14,45 +14,12 @@
 </template>
 
 <script setup lang="ts">
+import { useContentStore } from '@/stores/useContentStore'
 import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+const contentStore = useContentStore()
+const cards = contentStore.about
 
-const cards = [
-  {
-    link: '/src/assets/images/me.png',
-    title: 'Hi, I’m Katie Lisabeth',
-    description:
-      'With 3 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic and responsive websites.',
-    boxClass: ''
-  },
-  {
-    link: '/src/assets/images/stack.png',
-    title: 'Tech Stack',
-    description:
-      'I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications',
-    boxClass: ''
-  },
-  {
-    link: '/src/assets/images/skills.png',
-    title: 'Soft skills',
-    description:
-      'I excel in communication, teamwork, and problem-solving by collaborating effectively with others to break down complex challenges and deliver solutions. I’m adaptable, detail-oriented, and constantly learning, balancing creativity with accountability and time management to build quality software while maintaining empathy for users and colleagues.',
-    boxClass: 'box-big1'
-  },
-  {
-    link: '/src/assets/images/love.png',
-    title: 'My Passion for Coding',
-    description:
-      "I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills.",
-    boxClass: 'box-big3'
-  },
-  {
-    link: '/src/assets/images/mail.png',
-    title: 'Contact me',
-    description: 'katie_lisabeth@yahoo.com',
-    boxClass: 'box-big2'
-  }
-]
 const isVisible = ref(false)
 const leftView = ref(false)
 const aboutPage = ref<HTMLElement | null>(null)
@@ -292,7 +259,6 @@ onBeforeUnmount(() => {
     height: auto;
   }
 }
-
 
 @media (max-width: 708px) {
   .container {

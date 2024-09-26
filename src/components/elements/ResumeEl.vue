@@ -59,13 +59,13 @@
 </template>
 
 <script setup lang="ts">
-import { useGlobalStore } from '@/stores/useGlobalStore'
+import { useContentStore } from '@/stores/useContentStore'
 
-const globalStore = useGlobalStore()
+const contentStore = useContentStore()
 
-const skills = globalStore.skills
-const items = globalStore.work
-const profile = globalStore.profile
+const skills = contentStore.skills
+const items = contentStore.work
+const profile = contentStore.profile
 
 const getFirstWord = (text: string): string => {
   return text.split(' ')[0]

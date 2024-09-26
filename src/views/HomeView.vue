@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- Image and Text in the same height-restricted container -->
     <div class="content">
       <!-- Image  -->
       <figure class="photo">
@@ -10,14 +9,12 @@
           alt="Photo of Katie"
         />
       </figure>
-      <!-- Text  -->
+
       <div class="text">
-        <h1>Hello, I'm Katie</h1>
+        <h1>{{ $t('hello_im') }}</h1>
         <ScriptEl />
       </div>
     </div>
-
-    <!-- Tech stack  -->
 
     <div class="carousel">
       <CarouselEl :images="images" />
@@ -26,11 +23,13 @@
     <div class="mouse">
       <MouseScroll :showScroll="showScroll" />
     </div>
+    <MovingHorizon />
   </div>
 </template>
 
 <script setup lang="ts">
 import MouseScroll from '@/components/animation/MouseScroll.vue'
+import MovingHorizon from '@/components/animation/MovingHorizon.vue'
 import CarouselEl from '@/components/elements/CarouselEl.vue'
 import ScriptEl from '@/components/elements/ScriptEl.vue'
 import { svgIcons } from '@/mixins/carousel_icons'
