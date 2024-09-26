@@ -45,13 +45,6 @@ main {
 .section {
   width: 100%;
   height: auto;
-}
-
-.section:nth-of-type(odd) {
-  background-color: transparent;
-}
-
-.section:nth-of-type(even) {
-  background-color: transparent;
+  overflow: hidden;
 }
 </style>
