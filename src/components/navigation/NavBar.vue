@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div :class="[themeClass, 'header']">
     <!-- Logo -->
     <div class="logo">
       <img v-if="themeClass === 'dark-logo'" src="/src/assets/logoD.svg" alt="Logo" />
@@ -16,21 +16,22 @@
     <!-- Navigation -->
     <nav :class="{ active: isMobileNavVisible }" class="nav">
       <a v-for="link in links" :key="link.text" :href="link.href">
-        {{ link.text }}
+        {{ $t(link.text) }}
       </a>
-      <router-link to="/resume" rel="noopener noreferrer"> CV </router-link>
-
+      <router-link to="/resume" rel="noopener noreferrer">{{ $t('resume') }}</router-link>
+      <button class="language" @click="toggleLocale">{{ $t('switch_language') }}</button>
       <div class="theme-switch">
         <ThemeSwitch :isDarkTheme="isDarkTheme" @updateTheme="emit('updateTheme')" />
       </div>
     </nav>
   </div>
 </template>
-
 <script setup lang="ts">
 import { useThemeStore } from '@/store'
 import { computed, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import ThemeSwitch from '../controllers/ThemeSwitch.vue'
+const { locale } = useI18n()
 
 defineProps({
   isDarkTheme: Boolean
@@ -43,15 +44,19 @@ const themeClass = computed(() => {
 })
 
 const links = reactive([
-  { text: 'About me', href: '#about' },
-  { text: 'Work experience', href: '#work' },
-  { text: 'Projects', href: '#projects' }
+  { text: 'about_me', href: '#about' },
+  { text: 'work_experience', href: '#work' },
+  { text: 'projects', href: '#projects' }
 ])
 
 const isMobileNavVisible = ref(false)
 
 const toggleMobileNav = () => {
   isMobileNavVisible.value = !isMobileNavVisible.value
+}
+
+const toggleLocale = () => {
+  locale.value = locale.value === 'en-US' ? 'nl-NL' : 'en-US'
 }
 </script>
 
@@ -62,9 +67,9 @@ const toggleMobileNav = () => {
   align-items: center;
   margin: 0 auto;
   padding: 0.5rem;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   transition:
-    background-color 0.5s ease,
+    background 0.5s ease,
     color 0.5s ease;
   position: relative;
 }
@@ -106,6 +111,15 @@ nav a {
 
 nav a:hover {
   opacity: 0.7;
+}
+nav .language {
+  padding-bottom: 0.5rem;
+  margin: 0 1rem;
+  text-align: start;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--text-color);
 }
 
 .theme-switch {
