@@ -7,9 +7,10 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@/store/*": ["src/store/*"],
+      "@/stores/*": ["src/stores/*"],
       "@/components/*": ["src/components/*"],
-      "@/utils/*": ["src/utils/*"]
+      "@/utils/*": ["src/utils/*"],
+      "@/controllers/*": ["src/controllers/*"]
     },
     "lib": [],
     "types": ["node", "jsdom"]

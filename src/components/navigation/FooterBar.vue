@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import gitHubIcon from '@/assets/icons/gith.svg'
 import linkedInIcon from '@/assets/icons/linkedin.svg'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed } from 'vue'
 
 const socialLinks = [

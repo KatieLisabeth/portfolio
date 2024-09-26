@@ -25,6 +25,7 @@ const toggleTheme = () => {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 0 5px;
 }
 
 .icon {

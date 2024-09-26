@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onMounted, ref, type PropType } from 'vue'
 interface TCard {
   title: string

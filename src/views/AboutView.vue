@@ -14,45 +14,12 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
+import { useContentStore } from '@/stores/useContentStore'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+const contentStore = useContentStore()
+const cards = contentStore.about
 
-const cards = [
-  {
-    link: '/src/assets/images/me.png',
-    title: 'Hi, I’m Katie Lisabeth',
-    description:
-      'With 3 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic and responsive websites.',
-    boxClass: ''
-  },
-  {
-    link: '/src/assets/images/stack.png',
-    title: 'Tech Stack',
-    description:
-      'I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications',
-    boxClass: ''
-  },
-  {
-    link: '/src/assets/images/skills.png',
-    title: 'Soft skills',
-    description:
-      'I excel in communication, teamwork, and problem-solving by collaborating effectively with others to break down complex challenges and deliver solutions. I’m adaptable, detail-oriented, and constantly learning, balancing creativity with accountability and time management to build quality software while maintaining empathy for users and colleagues.',
-    boxClass: 'box-big1'
-  },
-  {
-    link: '/src/assets/images/love.png',
-    title: 'My Passion for Coding',
-    description:
-      "I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills.",
-    boxClass: 'box-big3'
-  },
-  {
-    link: '/src/assets/images/mail.png',
-    title: 'Contact me',
-    description: 'katie_lisabeth@yahoo.com',
-    boxClass: 'box-big2'
-  }
-]
 const isVisible = ref(false)
 const leftView = ref(false)
 const aboutPage = ref<HTMLElement | null>(null)
@@ -156,6 +123,7 @@ onBeforeUnmount(() => {
     height: auto;
   }
 }
+
 .box-big2 {
   grid-column: 3 / 4;
   img {
@@ -163,6 +131,7 @@ onBeforeUnmount(() => {
     height: auto;
   }
 }
+
 .box-big3 {
   grid-column: 1 / 3;
   grid-row: 2 / 4;
@@ -227,7 +196,26 @@ onBeforeUnmount(() => {
   color: var(--description-text);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1020px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+  }
+
+  .box-big1 {
+    grid-column: span 1;
+  }
+
+  .box-big2 {
+    grid-column: span 1;
+  }
+
+  .box-big3 {
+    grid-column: span 2;
+  }
+
   .title {
     font-size: 1.3rem;
   }
@@ -240,17 +228,65 @@ onBeforeUnmount(() => {
     height: 80%;
   }
 }
+@media (max-width: 970px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+  }
+  .box-big2 {
+    grid-column: span 2;
+  }
+  .box-big1,
+  .box-big3 {
+    grid-column: auto;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
 
-@media (max-width: 600px) {
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .link {
+    width: 100%;
+  }
+
+  .link img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 708px) {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
+
   .box-big1,
   .box-big2,
   .box-big3 {
     grid-column: 1;
     grid-row: auto;
+  }
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+  }
+
+  .link {
+    width: 100%;
+  }
+
+  .link img {
+    width: 80%;
+    height: auto;
   }
 }
 </style>

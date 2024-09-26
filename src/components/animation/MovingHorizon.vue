@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const themeStore = useThemeStore()

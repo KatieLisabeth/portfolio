@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { useScroll } from '@/utils/useScroll'
 import { storeToRefs } from 'pinia'
 import { defineAsyncComponent } from 'vue'
@@ -45,13 +45,6 @@ main {
 .section {
   width: 100%;
   height: auto;
-}
-
-.section:nth-of-type(odd) {
-  background-color: transparent;
-}
-
-.section:nth-of-type(even) {
-  background-color: transparent;
+  overflow: hidden;
 }
 </style>

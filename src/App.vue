@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import FooterBar from '@/components/navigation/FooterBar.vue'
 import NavBar from '@/components/navigation/NavBar.vue'
-import { useThemeStore } from '@/store'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { storeToRefs } from 'pinia'
 import { onMounted, ref, watch } from 'vue'
 
@@ -40,14 +40,3 @@ onMounted(() => {
   document.body.style.color = currentTheme.value.text
 })
 </script>
-
-<style scoped>
-html {
-  scroll-behavior: smooth;
-}
-
-main {
-  width: 100vw;
-  height: auto;
-}
-</style>

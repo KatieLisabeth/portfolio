@@ -22,8 +22,8 @@
 
       <ul class="points">
         <li v-for="(point, idx) in item.points" :key="`point-${idx}`">
-          <h3>{{ getFirstWord(point) }}</h3>
-          {{ getRestOfWords(point) }}
+          <h3>{{ getFirstWord($t(point)) }}</h3>
+          {{ getRestOfWords($t(point)) }}
         </li>
       </ul>
     </div>
@@ -167,11 +167,11 @@ watch(
   transform: translateX(-50%);
   width: 3px;
   height: 100%;
-  background: var(--hover-color);
+  color: var(--hover-color);
 }
 
 .date {
-  color: #d6c1c1;
+  color: #af9c9c;
   font-size: 14px;
   margin-bottom: 10px;
   font-family: 'Courier New', Courier, monospace;
@@ -241,12 +241,12 @@ watch(
   }
 
   .icon-image {
-    width: 60%;
-    height: 60%;
+    width: 100%;
+    height: 100%;
   }
 
   .timeline-container::before {
-    width: 5px;
+    width: 4px;
   }
 }
 
@@ -263,12 +263,13 @@ watch(
 
   .timeline-item {
     justify-content: flex-start;
-    flex-direction: column; /* Stack the icon and content vertically */
+    flex-direction: column;
     align-items: center;
+    left: 2rem;
   }
 
   .timeline-icon {
-    left: 0;
+    left: -3rem;
     margin-bottom: 5rem;
     transform: none;
   }
