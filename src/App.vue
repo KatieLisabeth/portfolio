@@ -40,14 +40,3 @@ onMounted(() => {
   document.body.style.color = currentTheme.value.text
 })
 </script>
-
-<style scoped>
-html {
-  scroll-behavior: smooth;
-}
-
-main {
-  width: 100vw;
-  height: auto;
-}
-</style>
