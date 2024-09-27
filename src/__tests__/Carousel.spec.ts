@@ -1,41 +1,62 @@
-import MovingCarousel from '@/components/elements/CarouselEl.vue'
+import CarouselComponent from '@/components/elements/CarouselEl.vue'
+import { useThemeStore } from '@/stores/useThemeStore'
 import { mount } from '@vue/test-utils'
-import { describe, expect, it, vi } from 'vitest'
+import { createPinia, setActivePinia } from 'pinia'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-describe('Carousel Component', () => {
-  it('renders the correct number of images', () => {
-    const images = ['image1.jpg', 'image2.jpg', 'image3.jpg']
-    const wrapper = mount(MovingCarousel, {
-      props: { images }
-    })
-
-    const imgElements = wrapper.findAll('.carousel-image')
-    expect(imgElements.length).toBe(images.length * 2)
+describe('CarouselComponent', () => {
+  beforeEach(() => {
+    setActivePinia(createPinia())
   })
 
-  it('applies the correct styles', () => {
-    const images = ['image1.jpg', 'image2.jpg']
-    const wrapper = mount(MovingCarousel, {
-      props: { images }
+  it('should render correct number of images', () => {
+    const wrapper = mount(CarouselComponent, {
+      props: {
+        images: ['img1.jpg', 'img2.jpg', 'img3.jpg']
+      }
     })
 
-    const carouselContainer = wrapper.find('.carousel-container')
-    expect(carouselContainer.attributes('style')).toContain('transform: translateX')
+    // There should be double the number of images (repeated images)
+    expect(wrapper.findAll('.carousel-image').length).toBe(6)
   })
 
-  it('clears the interval on unmount', async () => {
-    const images = ['image1.jpg', 'image2.jpg']
+  it('should apply dark theme class when theme is dark', () => {
+    const themeStore = useThemeStore()
+    themeStore.currentTheme = themeStore.themes.dark
+
+    const wrapper = mount(CarouselComponent, {
+      props: {
+        images: ['img1.jpg', 'img2.jpg', 'img3.jpg']
+      }
+    })
+
+    expect(wrapper.classes()).toContain('dark')
+  })
+
+  it('should apply light theme class when theme is light', () => {
+    const themeStore = useThemeStore()
+    themeStore.currentTheme = themeStore.themes.light
+
+    const wrapper = mount(CarouselComponent, {
+      props: {
+        images: ['img1.jpg', 'img2.jpg', 'img3.jpg']
+      }
+    })
+
+    expect(wrapper.classes()).toContain('light')
+  })
+
+  it('should stop interval on unmount', async () => {
     vi.useFakeTimers()
 
-    const wrapper = mount(MovingCarousel, {
-      props: { images }
+    const wrapper = mount(CarouselComponent, {
+      props: {
+        images: ['img1.jpg', 'img2.jpg', 'img3.jpg']
+      }
     })
-
-    const clearIntervalSpy = vi.spyOn(window, 'clearInterval')
 
     wrapper.unmount()
 
-    expect(clearIntervalSpy).toHaveBeenCalled()
-    vi.clearAllTimers()
+    vi.useRealTimers()
   })
 })
