@@ -7,7 +7,7 @@
       <div :class="[{ 'bounce-in': isVisible, 'bounce-out': !isVisible }, 'card-content']">
         <img v-if="card.link" :src="card.link" alt="grid image" class="link" />
         <h3 class="title">{{ $t(card.title) }}</h3>
-        <p class="description">{{ $t(card.description) }}</p>
+        <p class="description">{{ $t(card.description, { email: 'katie_lisabeth@yahoo.com' }) }}</p>
       </div>
     </div>
   </div>
