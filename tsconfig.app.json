@@ -11,6 +11,11 @@
       "@/components/*": ["./src/components/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/controllers/*": ["./src/controllers/*"]
-    }
+    },
+    "strict": true, // Enable strict mode for better type safety
+    "jsx": "preserve", // Supports Vue JSX/TSX files
+    "esModuleInterop": true, // Enables better interop with ES modules
+    "moduleResolution": "Node", // Helps with resolving modules
+    "lib": ["ESNext", "DOM"] // Target modern JavaScript and DOM APIs
   }
 }

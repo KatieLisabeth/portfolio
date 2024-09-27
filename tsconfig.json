@@ -12,7 +12,10 @@
     }
   ],
   "compilerOptions": {
-    "module": "NodeNext",
-    "types": ["vue"]
+    "module": "ESNext", // Use ESNext as Vite uses this
+    "moduleResolution": "Node", // Node resolution strategy
+    "types": ["vue", "node"], // Include Vue and Node types globally
+    "skipLibCheck": true, // Skip type checking of declaration files for faster builds
+    "allowSyntheticDefaultImports": true // Allow synthetic default imports for interop
   }
 }

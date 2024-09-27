@@ -5,10 +5,10 @@
     "composite": true,
     "noEmit": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "ESNext", // Vite and Vitest use ESNext module system
+    "moduleResolution": "Bundler", // Best for bundlers like Vite
     "allowSyntheticDefaultImports": true,
-    "types": ["node"]
+    "types": ["node"], // Adds Node.js types
+    "lib": ["ESNext"] // Target modern JavaScript
   }
 }
