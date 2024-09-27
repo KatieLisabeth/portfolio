@@ -7,18 +7,35 @@
       <div :class="[{ 'bounce-in': isVisible, 'bounce-out': !isVisible }, 'card-content']">
         <img v-if="card.link" :src="card.link" alt="grid image" class="link" />
         <h3 class="title">{{ $t(card.title) }}</h3>
-        <p class="description">{{ $t(card.description, { email: 'katie_lisabeth@yahoo.com' }) }}</p>
+        <p class="description">
+          <span v-if="card.hasHtml"
+            ><SocialEl
+              email="katie_lisabeth@yahoo.com"
+              linkedin="https://www.linkedin.com/in/kateryna-lisabeth-48a8a093/"
+              github="https://github.com/KatieLisabeth"
+              :emailIcon="email"
+              :linkedinIcon="linkedin"
+              :githubIcon="github"
+          /></span>
+          <!-- Use regular text for other cards -->
+          <span v-else>{{ $t(card.description) }}</span>
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { socialIcons } from '@/assets'
+import SocialEl from '@/components/elements/SocialEl.vue'
 import { useContentStore } from '@/stores/useContentStore'
 import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+
 const contentStore = useContentStore()
 const cards = contentStore.about
+
+const { github, linkedin, email } = socialIcons
 
 const isVisible = ref(false)
 const leftView = ref(false)
@@ -84,7 +101,13 @@ onBeforeUnmount(() => {
 .bounce-out {
   animation: bounceOut 0.6s ease forwards;
 }
-
+.description.media {
+  display: flex;
+  width: 100%;
+  height: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
 @keyframes bounceIn {
   0% {
     opacity: 0;
