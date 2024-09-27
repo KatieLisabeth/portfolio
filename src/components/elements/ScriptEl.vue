@@ -78,7 +78,7 @@ onBeforeUnmount(() => {
 .script {
   font-size: 1.7rem;
   font-weight: bold;
-  font-family:monospace;
+  font-family: monospace;
   transition: color 0.1s ease;
   color: var(--primary-text);
   text-align: left;
