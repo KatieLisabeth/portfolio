@@ -103,6 +103,7 @@ export const useContentStore = defineStore('globalStore', () => {
       link: '/src/assets/images/mail.png',
       title: 'about.contact.title',
       boxClass: 'box-big2',
+      description: '',
       hasHtml: true
     }
   ])

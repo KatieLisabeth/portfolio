@@ -45,4 +45,4 @@ export const carouselIcons = {
   icon20
 }
 
-export const socialIcons ={ email, linkedin, github}
+export const socialIcons = { email, linkedin, github }
