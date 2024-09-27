@@ -10,7 +10,13 @@
 
       <!-- Show only language switch, theme switch, and home button when on /resume -->
       <div v-if="isResumePage" class="nav-content">
-        <nav class="nav">
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" @click="toggleMobileNav">
+          <span :style="{ backgroundColor: themeStore.currentTheme.text }"></span>
+          <span :style="{ backgroundColor: themeStore.currentTheme.text }"></span>
+          <span :style="{ backgroundColor: themeStore.currentTheme.text }"></span>
+        </div>
+        <nav :class="{ active: isMobileNavVisible }" class="nav">
           <router-link to="/" class="icon-button"><img :src="back" />{{ $t('back') }}</router-link>
           <a :href="pdfUrl" download="Kateryna_Lisabeth-Resume.pdf" class="icon-button"
             >{{ $t('download') }} <img :src="download" />
@@ -67,7 +73,6 @@ const themeClass = computed(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? 'dark-logo' : 'light-logo'
 })
 
-// Check if the current route is /resume
 const route = useRoute()
 const isResumePage = computed(() => route.path === '/resume')
 
@@ -97,7 +102,6 @@ const toggleMobileNav = () => {
   position: relative;
 }
 
-/* New class for flex layout */
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -109,7 +113,6 @@ const toggleMobileNav = () => {
   height: 50px;
 }
 
-/* Style for the simplified header on /resume */
 .resume-header {
   display: flex;
   align-items: center;
@@ -128,7 +131,6 @@ const toggleMobileNav = () => {
   color: var(--text-color);
 }
 
-/* Flex layout for the regular nav content */
 .nav-content {
   display: flex;
   align-items: center;
@@ -183,7 +185,7 @@ nav a:hover {
     padding: 0 10px;
   }
 }
-/* Responsive styles */
+
 @media (max-width: 768px) {
   .nav {
     position: absolute;
@@ -197,7 +199,8 @@ nav a:hover {
 
   .nav.active {
     display: flex;
-    background: rgba(89, 92, 92, 0.541);
+    background: #121515db;
+    padding: 20px;
   }
 
   .hamburger {
@@ -206,7 +209,7 @@ nav a:hover {
 
   .nav a {
     margin: 0.5rem 0;
-    color: rgb(183, 219, 25);
+    /* color: #ef7f3eee; */
   }
 
   .theme-switch {
