@@ -3,15 +3,8 @@
   "exclude": [],
   "compilerOptions": {
     "composite": true,
+    "allowSyntheticDefaultImports": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"],
-      "@/stores/*": ["src/stores/*"],
-      "@/components/*": ["src/components/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/controllers/*": ["src/controllers/*"]
-    },
     "lib": [],
     "types": ["node", "jsdom"]
   }
