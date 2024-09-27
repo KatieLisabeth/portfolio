@@ -250,7 +250,6 @@ watch(
   }
 }
 
-/* Media Query for screens smaller than 768px */
 @media (max-width: 768px) {
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
@@ -275,21 +274,30 @@ watch(
   }
 }
 
-/* Media Query for screens smaller than 480px */
 @media (max-width: 480px) {
+  .timeline-item .points {
+    h3 {
+      font-size: 1rem;
+    }
+
+  }
+
   .timeline-item {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 5px 0;
+    padding: 0;
     margin: 0;
+    left: 0;
+  }
+  .timeline-item .points {
+    padding: 0;
   }
 
   .timeline-icon {
     left: 0;
     top: auto;
-    margin: 0;
+    margin: 1rem;
     position: relative;
     transform: none;
   }
