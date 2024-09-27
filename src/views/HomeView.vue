@@ -23,16 +23,14 @@
     <div class="mouse">
       <MouseScroll :showScroll="showScroll" />
     </div>
-    <MovingHorizon />
   </div>
 </template>
 
 <script setup lang="ts">
+import { carouselIcons } from '@/assets'
 import MouseScroll from '@/components/animation/MouseScroll.vue'
-import MovingHorizon from '@/components/animation/MovingHorizon.vue'
 import CarouselEl from '@/components/elements/CarouselEl.vue'
 import ScriptEl from '@/components/elements/ScriptEl.vue'
-import { carouselIcons } from '@/assets'
 import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, ref } from 'vue'
 
@@ -134,13 +132,13 @@ const themeClass = computed(() => {
 
   .photo img {
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
   }
 
   .text {
     width: 100%;
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 0 1rem;
+    margin-top: 0.3rem;
     text-align: center;
   }
   .mouse {
