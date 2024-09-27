@@ -68,36 +68,32 @@ export const useContentStore = defineStore('globalStore', () => {
   const about = ref([
     {
       link: '/src/assets/images/me.png',
-      title: 'Hi, I’m Katie Lisabeth',
-      description:
-        'With 3 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic and responsive websites.',
+      title: 'about.me.title',
+      description: 'about.me.description',
       boxClass: ''
     },
     {
       link: '/src/assets/images/stack.png',
-      title: 'Tech Stack',
-      description:
-        'I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications',
+      title: 'about.stack.title',
+      description: 'about.stack.description',
       boxClass: ''
     },
     {
       link: '/src/assets/images/skills.png',
-      title: 'Soft skills',
-      description:
-        'I excel in communication, teamwork, and problem-solving by collaborating effectively with others to break down complex challenges and deliver solutions. I’m adaptable, detail-oriented, and constantly learning, balancing creativity with accountability and time management to build quality software while maintaining empathy for users and colleagues.',
+      title: 'about.skills.title',
+      description: 'about.skills.description',
       boxClass: 'box-big1'
     },
     {
       link: '/src/assets/images/love.png',
-      title: 'My Passion for Coding',
-      description:
-        "I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills.",
+      title: 'about.passion.title',
+      description: 'about.passion.description',
       boxClass: 'box-big3'
     },
     {
       link: '/src/assets/images/mail.png',
-      title: 'Contact me',
-      description: 'katie_lisabeth@yahoo.com',
+      title: 'about.contact.title',
+      description: 'about.contact.description',
       boxClass: 'box-big2'
     }
   ])

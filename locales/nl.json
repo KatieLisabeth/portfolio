@@ -34,5 +34,27 @@
             "point2": "Levering: Gestroomlijnd software-implementatieproces door nieuwe versies uit te brengen via Jenkins.",
             "point3": "Nazorg: Biedt interactieve ondersteuning en optimalisatie binnen een Scrum-raamwerk."
         }
+    },
+    "about": {
+        "me": {
+            "title": "Hallo, ik ben Katie Lisabeth",
+            "description": "Met 3 jaar ervaring heb ik mijn vaardigheden in zowel frontend- als backendontwikkeling aangescherpt, waarbij ik dynamische en responsieve websites maak."
+        },
+        "stack": {
+            "title": "Technische Stack",
+            "description": "Ik ben gespecialiseerd in een verscheidenheid aan talen, frameworks en tools die me in staat stellen robuuste en schaalbare applicaties te bouwen."
+        },
+        "skills": {
+            "title": "Soft skills",
+            "description": "Ik blink uit in communicatie, teamwork en probleemoplossing door effectief samen te werken met anderen om complexe uitdagingen aan te pakken en oplossingen te leveren. Ik ben flexibel, detailgericht en altijd bezig met leren. Ik combineer creativiteit met verantwoordelijkheid en tijdmanagement om kwalitatieve software te bouwen, terwijl ik empathie toon voor gebruikers en collega's."
+        },
+        "passion": {
+            "title": "Mijn passie voor programmeren",
+            "description": "Ik hou ervan om problemen op te lossen en dingen te bouwen met code. Programmeren is niet alleen mijn beroep, het is mijn passie. Ik geniet ervan om nieuwe technologieën te verkennen en mijn vaardigheden te verbeteren."
+        },
+        "contact": {
+            "title": "Contacteer mij",
+            "description": "katie_lisabeth@yahoo.com"
+        }
     }
 }

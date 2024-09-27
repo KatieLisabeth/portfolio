@@ -34,5 +34,27 @@
             "point2": "Delivery: Streamlined software deployment process by releasing new versions via Jenkins.",
             "point3": "Aftercare: Provided interactive support and optimization within a Scrum framework."
         }
+    },
+    "about": {
+        "me": {
+            "title": "Hi, I’m Katie Lisabeth",
+            "description": "With 3 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic and responsive websites."
+        },
+        "stack": {
+            "title": "Tech Stack",
+            "description": "I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications."
+        },
+        "skills": {
+            "title": "Soft skills",
+            "description": "I excel in communication, teamwork, and problem-solving by collaborating effectively with others to break down complex challenges and deliver solutions. I’m adaptable, detail-oriented, and constantly learning, balancing creativity with accountability and time management to build quality software while maintaining empathy for users and colleagues."
+        },
+        "passion": {
+            "title": "My Passion for Coding",
+            "description": "I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills."
+        },
+        "contact": {
+            "title": "Contact me",
+            "description": "katie_lisabeth@yahoo.com"
+        }
     }
 }

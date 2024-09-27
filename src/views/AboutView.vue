@@ -6,8 +6,8 @@
     <div v-for="(card, index) in cards" :key="index" :class="['item', card.boxClass]">
       <div :class="[{ 'bounce-in': isVisible, 'bounce-out': !isVisible }, 'card-content']">
         <img v-if="card.link" :src="card.link" alt="grid image" class="link" />
-        <h3 class="title">{{ card.title }}</h3>
-        <p class="description">{{ card.description }}</p>
+        <h3 class="title">{{ $t(card.title) }}</h3>
+        <p class="description">{{ $t(card.description) }}</p>
       </div>
     </div>
   </div>
