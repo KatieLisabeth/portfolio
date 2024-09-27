@@ -73,11 +73,11 @@ body {
 }
 
 .light-about {
-  --primary-color: rgba(68, 148, 141, 1);
+  --primary-color: #127fd3f3;
   --title-text: #fffccc;
-  --description-text: #cad8a8;
+  --description-text: #c4e872;
   --card-text: #ffc0a9;
-  --hover-color: rgba(68, 148, 141, 0.95);
+  --hover-color: #127fd3dc;
 }
 
 .dark-about {
@@ -89,12 +89,6 @@ body {
   --font: 'Courier New', Courier, monospace;
 }
 
-.dark-hamburger-color {
-  color: '#ffc0a9';
-}
-.light-hamburger-color {
-  color: '#ffc0a9';
-}
 .dark {
   --dark: grayscale(100%);
 }

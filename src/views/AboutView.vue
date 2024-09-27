@@ -205,7 +205,7 @@ onBeforeUnmount(() => {
   text-overflow: ellipsis;
   text-align: left;
   overflow: hidden;
-  font-family: var(--font);
+  font-family: monospace;
   color: var(--title-text);
 }
 
@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
   white-space: normal;
   overflow-wrap: break-word;
   text-align: left;
-  font-family: var(--font);
+  font-family: monospace;
   color: var(--description-text);
 }
 

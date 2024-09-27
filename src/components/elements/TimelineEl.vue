@@ -128,7 +128,9 @@ watch(
 
 .timeline-item .points {
   list-style: none;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 1rem;
   h3 {
     font-weight: 800;
     font-size: 1rem;
@@ -183,21 +185,21 @@ watch(
   color: #af9c9c;
   font-size: 14px;
   margin-bottom: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 5px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .company {
   font-size: 16px;
   font-weight: 600;
   color: #bbb;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 @keyframes slideInFromLeft {

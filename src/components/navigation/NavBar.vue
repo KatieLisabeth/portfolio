@@ -163,7 +163,7 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: color 0.1s ease;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   color: var(--primary-text);
 }
 
@@ -209,7 +209,6 @@ nav a:hover {
 
   .nav a {
     margin: 0.5rem 0;
-    /* color: #ef7f3eee; */
   }
 
   .theme-switch {

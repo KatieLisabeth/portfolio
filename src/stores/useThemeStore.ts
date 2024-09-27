@@ -3,7 +3,6 @@ import { reactive } from 'vue'
 
 interface Theme {
   primary: string
-  secondary: string
   text: string
 }
 
@@ -14,14 +13,10 @@ interface Themes {
 
 const themes: Themes = {
   light: {
-    secondary:
-      'linear-gradient(93deg, rgba(142,141,138,1) 5%, rgba(216,195,165,1) 52%, rgba(142,141,138,1) 95%)',
     primary: '#fff',
-    text: 'rgba(68,148,131,1)'
+    text: '#094d82'
   },
   dark: {
-    secondary:
-      'linear-gradient(93deg, rgba(68,148,141,1) 0%, rgba(61,61,61,1) 48%, rgba(0,0,0,1) 95%)',
     primary: 'linear-gradient(90deg, #01041F 0%, #082B33 100%)',
     text: '#16d287'
   }

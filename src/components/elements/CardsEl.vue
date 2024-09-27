@@ -95,7 +95,7 @@ const themeClass = computed(() => {
 .card p {
   font-size: 1rem;
   line-height: 1;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   color: var(--card-text);
   font-weight: 800;
 }
