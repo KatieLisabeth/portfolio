@@ -155,7 +155,7 @@ const getRestOfWords = (text: string): string => {
 }
 .skills-container {
   width: 100%;
-  max-width: 300px;
+  max-width: 600px;
   margin: 15px auto;
 }
 

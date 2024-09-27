@@ -1,3 +1,5 @@
+import gitHubIcon from '@/assets/icons/gith.svg'
+import linkedInIcon from '@/assets/icons/linkedin.svg'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -100,8 +102,8 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       link: '/src/assets/images/mail.png',
       title: 'about.contact.title',
-      description: 'about.contact.description',
-      boxClass: 'box-big2'
+      boxClass: 'box-big2',
+      hasHtml: true
     }
   ])
 
@@ -131,5 +133,13 @@ export const useContentStore = defineStore('globalStore', () => {
       image: ''
     }
   ])
-  return { skills, work, about, profile, words, languages, projects }
+  const social = [
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/kateryna-lisabeth-48a8a093/',
+      icon: linkedInIcon
+    },
+    { name: 'GitHub', url: 'https://github.com/KatieLisabeth', icon: gitHubIcon }
+  ]
+  return { skills, work, about, profile, words, languages, projects, social }
 })

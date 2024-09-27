@@ -1,17 +1,11 @@
 <template>
   <ul :class="[themeClass, 'cards']">
-    <!-- <li
-      v-for="(card, index) in cards"
+    <li
+      v-for="(project, index) in cards"
       :key="index"
       :class="['card', getCardClass(index)]"
       @click="handleCardClick(index)"
     >
-      <h1>{{ card.title }}</h1>
-      <img :src="card.image" alt="project photo" />
-      <p>{{ card.text }}</p>
-    </li> -->
-    <li v-for="(project, index) in cards" :key="index" :class="['card', getCardClass(index)]"
-      @click="handleCardClick(index)">
       <h1>{{ $t(`projects.${project.name}.title`) }}</h1>
       <img :src="project.image" alt="project image" />
       <p>{{ $t(`projects.${project.name}.text`) }}</p>
@@ -20,11 +14,10 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/stores/useThemeStore';
-import { computed, onMounted, ref, type PropType } from 'vue';
+import { useThemeStore } from '@/stores/useThemeStore'
+import { computed, onMounted, ref, type PropType } from 'vue'
 interface TCard {
-
- name: string
+  name: string
   image: string
 }
 const props = defineProps({
