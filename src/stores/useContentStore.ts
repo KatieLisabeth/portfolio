@@ -3,10 +3,29 @@ import { ref } from 'vue'
 
 export const useContentStore = defineStore('globalStore', () => {
   const skills = ref([
-    { name: 'HTML', level: 90 },
-    { name: 'CSS', level: 80 },
-    { name: 'JavaScript', level: 75 },
-    { name: 'Vue.js', level: 85 }
+    { name: 'HTML', level: 99 },
+    { name: 'CSS/SCSS', level: 90 },
+    { name: 'JavaScript', level: 85 },
+    { name: 'TypeScript', level: 75 },
+    { name: 'React', level: 95 },
+    { name: 'Vue.js', level: 95 },
+    { name: 'MUI', level: 85 },
+    { name: 'Bootstrap', level: 95 },
+    { name: 'Node.js', level: 85 },
+    { name: 'SQL Databases', level: 75 },
+    { name: 'Rest API', level: 95 },
+    { name: 'Jest', level: 95 },
+    { name: 'Git', level: 85 },
+    { name: 'Web Services', level: 75 },
+    { name: 'Jenkins', level: 95 },
+    { name: 'CI/CD', level: 95 },
+    { name: 'UI/UX', level: 85 },
+    { name: 'Scrum Methodology', level: 85 },
+    { name: 'Figma', level: 95 }
+  ])
+  const languages = ref([
+    { name: 'english', level: 90 },
+    { name: 'dutch', level: 70 }
   ])
 
   const words = ref(['passionStatement1', 'passionStatement2', 'passionStatement3'])
@@ -42,10 +61,7 @@ export const useContentStore = defineStore('globalStore', () => {
       icon: '/src/assets/images/onepunch.png',
       iconBg: '#fc4c4c',
       date: 'Aug 2022 - Nov 2022',
-      points: [
-        'work.onePunch.point1',
-        'work.onePunch.point2'
-      ]
+      points: ['work.onePunch.point1', 'work.onePunch.point2']
     },
     {
       title: 'Developer Analyst VRT',
@@ -53,12 +69,7 @@ export const useContentStore = defineStore('globalStore', () => {
       icon: '/src/assets/images/vrt.png',
       iconBg: '#fc4c4c',
       date: 'Jun 2021 - May 2022',
-      points: [
-        'work.vrt.point1',
-        'work.vrt.point2',
-        'work.vrt.point3',
-        'work.vrt.point4'
-      ]
+      points: ['work.vrt.point1', 'work.vrt.point2', 'work.vrt.point3', 'work.vrt.point4']
     }
   ])
   const about = ref([
@@ -94,5 +105,5 @@ export const useContentStore = defineStore('globalStore', () => {
     }
   ])
 
-  return { skills, work, about, profile, words }
+  return { skills, work, about, profile, words, languages }
 })
