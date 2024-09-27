@@ -1,12 +1,33 @@
+import gitHubIcon from '@/assets/icons/gith.svg'
+import linkedInIcon from '@/assets/icons/linkedin.svg'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useContentStore = defineStore('globalStore', () => {
   const skills = ref([
-    { name: 'HTML', level: 90 },
-    { name: 'CSS', level: 80 },
-    { name: 'JavaScript', level: 75 },
-    { name: 'Vue.js', level: 85 }
+    { name: 'HTML', level: 99 },
+    { name: 'CSS/SCSS', level: 90 },
+    { name: 'JavaScript', level: 85 },
+    { name: 'TypeScript', level: 75 },
+    { name: 'React', level: 95 },
+    { name: 'Vue.js', level: 95 },
+    { name: 'MUI', level: 85 },
+    { name: 'Bootstrap', level: 95 },
+    { name: 'Node.js', level: 85 },
+    { name: 'SQL Databases', level: 75 },
+    { name: 'Rest API', level: 95 },
+    { name: 'Jest', level: 95 },
+    { name: 'Git', level: 85 },
+    { name: 'Web Services', level: 75 },
+    { name: 'Jenkins', level: 95 },
+    { name: 'CI/CD', level: 95 },
+    { name: 'UI/UX', level: 85 },
+    { name: 'Scrum Methodology', level: 85 },
+    { name: 'Figma', level: 95 }
+  ])
+  const languages = ref([
+    { name: 'english', level: 90 },
+    { name: 'dutch', level: 70 }
   ])
 
   const words = ref(['passionStatement1', 'passionStatement2', 'passionStatement3'])
@@ -25,7 +46,7 @@ export const useContentStore = defineStore('globalStore', () => {
         'work.sweco.point2',
         'work.sweco.point3',
         'work.sweco.point4',
-        'Contact: Serge de Gheldere, CEO Futureproofed - serge.degheldere@swecobelgium.be'
+        'work.sweco.point5'
       ]
     },
     {
@@ -34,11 +55,7 @@ export const useContentStore = defineStore('globalStore', () => {
       icon: '/src/assets/images/wellbeing.png',
       iconBg: '#fc4c4c',
       date: 'Nov 2022 - Jan 2023',
-      points: [
-        'work.wellbeing.point1',
-        'work.wellbeing.point2',
-        'Contact: Laurent Tornhout, CEO at Wellbeing.ai - laurent.van.tornhout@wellbeing.ai'
-      ]
+      points: ['work.wellbeing.point1', 'work.wellbeing.point2', 'work.wellbeing.point3']
     },
     {
       title: 'Junior Front-end Developer',
@@ -46,10 +63,7 @@ export const useContentStore = defineStore('globalStore', () => {
       icon: '/src/assets/images/onepunch.png',
       iconBg: '#fc4c4c',
       date: 'Aug 2022 - Nov 2022',
-      points: [
-        'work.onePunch.point1',
-        'Contact: Chatchai Sribunruang, CEO OnePunchAgency - chatchai@onepunch.agency'
-      ]
+      points: ['work.onePunch.point1', 'work.onePunch.point2']
     },
     {
       title: 'Developer Analyst VRT',
@@ -57,50 +71,75 @@ export const useContentStore = defineStore('globalStore', () => {
       icon: '/src/assets/images/vrt.png',
       iconBg: '#fc4c4c',
       date: 'Jun 2021 - May 2022',
-      points: [
-        'work.vrt.point1',
-        'work.vrt.point2',
-        'work.vrt.point3',
-        'Contact: Ruben Causyn, Team Lead VRTNU/Radio - ruben.causyn@vrt.be'
-      ]
+      points: ['work.vrt.point1', 'work.vrt.point2', 'work.vrt.point3', 'work.vrt.point4']
     }
   ])
   const about = ref([
     {
       link: '/src/assets/images/me.png',
-      title: 'Hi, I’m Katie Lisabeth',
-      description:
-        'With 3 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic and responsive websites.',
+      title: 'about.me.title',
+      description: 'about.me.description',
       boxClass: ''
     },
     {
       link: '/src/assets/images/stack.png',
-      title: 'Tech Stack',
-      description:
-        'I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications',
+      title: 'about.stack.title',
+      description: 'about.stack.description',
       boxClass: ''
     },
     {
       link: '/src/assets/images/skills.png',
-      title: 'Soft skills',
-      description:
-        'I excel in communication, teamwork, and problem-solving by collaborating effectively with others to break down complex challenges and deliver solutions. I’m adaptable, detail-oriented, and constantly learning, balancing creativity with accountability and time management to build quality software while maintaining empathy for users and colleagues.',
+      title: 'about.skills.title',
+      description: 'about.skills.description',
       boxClass: 'box-big1'
     },
     {
       link: '/src/assets/images/love.png',
-      title: 'My Passion for Coding',
-      description:
-        "I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills.",
+      title: 'about.passion.title',
+      description: 'about.passion.description',
       boxClass: 'box-big3'
     },
     {
       link: '/src/assets/images/mail.png',
-      title: 'Contact me',
-      description: 'katie_lisabeth@yahoo.com',
-      boxClass: 'box-big2'
+      title: 'about.contact.title',
+      boxClass: 'box-big2',
+      hasHtml: true
     }
   ])
 
-  return { skills, work, about, profile, words }
+  const projects = ref([
+    {
+      name: 'project1',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project2',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project3',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project4',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project5',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project6',
+      image: ''
+    }
+  ])
+  const social = [
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/kateryna-lisabeth-48a8a093/',
+      icon: linkedInIcon
+    },
+    { name: 'GitHub', url: 'https://github.com/KatieLisabeth', icon: gitHubIcon }
+  ]
+  return { skills, work, about, profile, words, languages, projects, social }
 })

@@ -41,6 +41,7 @@ select {
   border-radius: 5px;
   background-color: transparent;
   color: var(--text-color);
+  font-family: monospace;
   transition:
     box-shadow 0.3s ease,
     border-color 0.3s ease;
@@ -51,6 +52,7 @@ select:active {
   border: none;
   box-shadow: 0 0 5px var(--primary-color);
   outline: none;
+  font-family: monospace;
 }
 
 .dropdown-toggle {

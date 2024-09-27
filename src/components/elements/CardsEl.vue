@@ -1,14 +1,14 @@
 <template>
   <ul :class="[themeClass, 'cards']">
     <li
-      v-for="(card, index) in cards"
+      v-for="(project, index) in cards"
       :key="index"
       :class="['card', getCardClass(index)]"
       @click="handleCardClick(index)"
     >
-      <h1>{{ card.title }}</h1>
-      <img :src="card.image" alt="project photo" />
-      <p>{{ card.text }}</p>
+      <h1>{{ $t(`projects.${project.name}.title`) }}</h1>
+      <img :src="project.image" alt="project image" />
+      <p>{{ $t(`projects.${project.name}.text`) }}</p>
     </li>
   </ul>
 </template>
@@ -17,8 +17,7 @@
 import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onMounted, ref, type PropType } from 'vue'
 interface TCard {
-  title: string
-  text: string
+  name: string
   image: string
 }
 const props = defineProps({
@@ -96,7 +95,7 @@ const themeClass = computed(() => {
 .card p {
   font-size: 1rem;
   line-height: 1;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   color: var(--card-text);
   font-weight: 800;
 }
@@ -115,10 +114,6 @@ const themeClass = computed(() => {
   transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
   z-index: 1;
   background: var(--card-color3);
-  box-shadow:
-    inset 3px 3px 8px #ffffff99,
-    inset -3px -3px 8px #00000066,
-    5px 5px 15px #00000033;
 }
 
 @keyframes card-out {
@@ -144,10 +139,6 @@ const themeClass = computed(() => {
   z-index: 10;
   opacity: 1;
   background: var(--card-color1);
-  box-shadow:
-    inset 3px 3px 8px #ffffff99,
-    inset -3px -3px 8px #00000066,
-    5px 5px 15px #00000033;
   transform: rotate(-1deg) translateX(0%) scale(1);
 }
 

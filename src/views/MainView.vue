@@ -1,7 +1,6 @@
 <template>
   <section id="home" class="section">
     <HomeView :themeTextColor="currentTheme.text" :showScroll="showScrollAnimation" />
-    <ParticleMove />
   </section>
 
   <section id="about" class="section">
@@ -27,8 +26,6 @@ import { defineAsyncComponent } from 'vue'
 const HomeView = defineAsyncComponent(() => import('@/views/HomeView.vue'))
 const AboutView = defineAsyncComponent(() => import('@/views/AboutView.vue'))
 const WorkView = defineAsyncComponent(() => import('@/views/WorkView.vue'))
-// const ProjectsView = defineAsyncComponent(() => import('@/views/ProjectsView.vue'))
-const ParticleMove = defineAsyncComponent(() => import('@/components/animation/ParticleMove.vue'))
 
 const themeStore = useThemeStore()
 const { currentTheme } = storeToRefs(themeStore)

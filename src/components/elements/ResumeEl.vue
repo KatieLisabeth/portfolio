@@ -10,7 +10,15 @@
           <h2>{{ $t('details_title').toUpperCase() }}</h2>
           <p>Vilvoorde, Belgium</p>
           <p>
-            <a href="mailto:katie_lisabeth@yahoo.com">katie_lisabeth@yahoo.com</a>
+            <a href="mailto:katie_lisabeth@yahoo.com">{{ $t('write_email') }}</a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/kateryna-lisabeth-48a8a093/" target="_blank">{{
+              $t('visit_linkedin')
+            }}</a>
+          </p>
+          <p>
+            <a href="https://github.com/KatieLisabeth" target="_blank">{{ $t('visit_github') }}</a>
           </p>
         </div>
         <div class="skills-container">
@@ -22,6 +30,15 @@
             </div>
           </div>
         </div>
+        <div class="skills-container">
+          <h2>{{ $t('language_title').toUpperCase() }}</h2>
+          <div v-for="(language, index) in languages" :key="index" class="skill">
+            <h4>{{ $t(`languages.${language.name}`) }}</h4>
+            <div class="skill-bar">
+              <div class="skill-level" :style="{ width: language.level + '%' }"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col2">
         <!-- Specific text for second column -->
@@ -30,12 +47,7 @@
           {{ $t(profile) }}
         </p>
         <h2>{{ $t('employment_history').toUpperCase() }}</h2>
-        <div
-          v-for="(item, index) in items"
-          :key="index"
-          :class="['timeline-item', index % 2 === 0 ? 'left' : 'right']"
-          ref="timelineRefs"
-        >
+        <div v-for="(item, index) in items" :key="index" class="timeline-item" ref="timelineRefs">
           <div class="timeline-content">
             <h3 class="title">
               {{ item.title }} -
@@ -45,7 +57,17 @@
             <span class="date">{{ item.date }}</span>
             <ul class="points">
               <li v-for="(point, idx) in item.points" :key="`point-${idx}`">
-                {{ getFirstWord($t(point)) }} {{ getRestOfWords($t(point)) }}
+                {{ getFirstWord($t(point)) }}
+                {{
+                  getRestOfWords(
+                    $t(point, {
+                      swecoEmail: 'serge.degheldere@swecobelgium.be',
+                      wellbeingEmail: 'laurent.van.tornhout@wellbeing.ai',
+                      onePunchEmail: 'chatchai@onepunch.agency',
+                      vrtEmail: 'ruben.causyn@vrt.be'
+                    })
+                  )
+                }}
               </li>
             </ul>
           </div>
@@ -66,6 +88,7 @@ const contentStore = useContentStore()
 const skills = contentStore.skills
 const items = contentStore.work
 const profile = contentStore.profile
+const languages = contentStore.languages
 
 const getFirstWord = (text: string): string => {
   return text.split(' ')[0]
@@ -94,15 +117,15 @@ const getRestOfWords = (text: string): string => {
   display: flex;
 }
 
-/* First column */
 .col1 {
   max-width: 300px;
   flex: 0 0 300px;
-  padding: 10px;
+  padding: 15px;
   background-color: #f2f2f2;
   color: #524f4f;
   h2 {
     text-align: center;
+    font-weight: 800;
   }
 }
 
@@ -112,6 +135,10 @@ const getRestOfWords = (text: string): string => {
   padding: 10px;
   background-color: #e8e8e8;
   color: #524f4f;
+  h2 {
+    margin: 0.5rem 0 2rem 0;
+    font-weight: 800;
+  }
 }
 .date {
   color: #514848;
@@ -122,14 +149,14 @@ const getRestOfWords = (text: string): string => {
 
 .title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 5px;
   font-family: 'Courier New', Courier, monospace;
 }
 .skills-container {
   width: 100%;
   max-width: 600px;
-  margin: 20px auto;
+  margin: 15px auto;
 }
 
 .skill {
@@ -138,7 +165,7 @@ const getRestOfWords = (text: string): string => {
 
 .skill h4 {
   margin: 0 0 5px;
-  font-size: 18px;
+  font-size: 14px;
   color: #333;
 }
 
@@ -155,7 +182,7 @@ const getRestOfWords = (text: string): string => {
   background-color: #524f4f;
   border-radius: 10px 0 0 10px;
 }
-/* Responsive for smaller screens */
+
 @media (max-width: 768px) {
   .columns {
     flex-direction: column;

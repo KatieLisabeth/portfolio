@@ -23,7 +23,16 @@
       <ul class="points">
         <li v-for="(point, idx) in item.points" :key="`point-${idx}`">
           <h3>{{ getFirstWord($t(point)) }}</h3>
-          {{ getRestOfWords($t(point)) }}
+          {{
+            getRestOfWords(
+              $t(point, {
+                swecoEmail: 'serge.degheldere@swecobelgium.be',
+                wellbeingEmail: 'laurent.van.tornhout@wellbeing.ai',
+                onePunchEmail: 'chatchai@onepunch.agency',
+                vrtEmail: 'ruben.causyn@vrt.be'
+              })
+            )
+          }}
         </li>
       </ul>
     </div>
@@ -119,7 +128,9 @@ watch(
 
 .timeline-item .points {
   list-style: none;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 1rem;
   h3 {
     font-weight: 800;
     font-size: 1rem;
@@ -174,21 +185,21 @@ watch(
   color: #af9c9c;
   font-size: 14px;
   margin-bottom: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 5px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .company {
   font-size: 16px;
   font-weight: 600;
   color: #bbb;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 @keyframes slideInFromLeft {
@@ -250,7 +261,6 @@ watch(
   }
 }
 
-/* Media Query for screens smaller than 768px */
 @media (max-width: 768px) {
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
@@ -275,21 +285,29 @@ watch(
   }
 }
 
-/* Media Query for screens smaller than 480px */
 @media (max-width: 480px) {
+  .timeline-item .points {
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
   .timeline-item {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 5px 0;
+    padding: 0;
     margin: 0;
+    left: 0;
+  }
+  .timeline-item .points {
+    padding: 0;
   }
 
   .timeline-icon {
     left: 0;
     top: auto;
-    margin: 0;
+    margin: 1rem;
     position: relative;
     transform: none;
   }

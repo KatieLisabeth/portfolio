@@ -9,10 +9,11 @@ import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const themeStore = useThemeStore()
+
 const themeClass = computed(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? 'dark-dot' : 'light-dot'
 })
-// Canvas reference and context
+
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 let ctx: CanvasRenderingContext2D | null = null
 
@@ -84,8 +85,10 @@ onMounted(() => {
   const canvas = canvasRef.value
   if (canvas) {
     ctx = canvas.getContext('2d')
-    generatePoints(0)
-    update()
+    if (ctx) {
+      generatePoints(0)
+      update()
+    }
   }
 })
 
@@ -108,10 +111,10 @@ onBeforeUnmount(() => {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Ensure no scrollbar from canvas content */
-  z-index: -1; /* Place it behind any content */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
 }
 
 .horizon-canvas {

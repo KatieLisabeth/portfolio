@@ -2,40 +2,19 @@
   <footer :class="[themeClass, 'footer']">
     <div class="footer-content">
       <div class="footer-left">
-        <p>Terms & Conditions | Privacy Policy</p>
-      </div>
-      <div class="footer-center">
-        <a
-          v-for="social in socialLinks"
-          :key="social.icon"
-          :href="social.url"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img :src="social.icon" :alt="social.name" class="social-icon" />
-        </a>
+        <p>Privacy Policy</p>
       </div>
       <div class="footer-right">
-        <p>© Kateryna Lisabeth 2024 - Built with Vue & TypeScript</p>
+        <p>© Kateryna Lisabeth 2024 - {{ $t('built_with') }} Vue & TypeScript</p>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import gitHubIcon from '@/assets/icons/gith.svg'
-import linkedInIcon from '@/assets/icons/linkedin.svg'
 import { useThemeStore } from '@/stores/useThemeStore'
 import { computed } from 'vue'
 
-const socialLinks = [
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/kateryna-lisabeth-48a8a093/',
-    icon: linkedInIcon
-  },
-  { name: 'GitHub', url: 'https://github.com/KatieLisabeth', icon: gitHubIcon }
-]
 const themeStore = useThemeStore()
 const themeClass = computed(() => {
   return themeStore.currentTheme === themeStore.themes.dark ? 'dark' : 'light'
@@ -49,6 +28,7 @@ const themeClass = computed(() => {
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   background-color: var(--primary-color);
   color: var(--primary-text);
+  font-family: monospace;
   transition:
     background-color 0.5s ease,
     color 0.5s ease;
@@ -72,12 +52,6 @@ const themeClass = computed(() => {
 .footer-right {
   flex: 1;
   text-align: right;
-}
-
-.footer-center {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
 }
 
 .social-icon {
