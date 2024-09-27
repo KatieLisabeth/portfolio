@@ -115,10 +115,6 @@ const themeClass = computed(() => {
   transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
   z-index: 1;
   background: var(--card-color3);
-  box-shadow:
-    inset 3px 3px 8px #ffffff99,
-    inset -3px -3px 8px #00000066,
-    5px 5px 15px #00000033;
 }
 
 @keyframes card-out {
@@ -144,10 +140,6 @@ const themeClass = computed(() => {
   z-index: 10;
   opacity: 1;
   background: var(--card-color1);
-  box-shadow:
-    inset 3px 3px 8px #ffffff99,
-    inset -3px -3px 8px #00000066,
-    5px 5px 15px #00000033;
   transform: rotate(-1deg) translateX(0%) scale(1);
 }
 
