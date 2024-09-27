@@ -18,6 +18,9 @@ import icon14 from './icons/postman.svg'
 import icon10 from './icons/react.svg'
 import icon11 from './icons/sass.svg'
 import icon16 from './icons/vercel.svg'
+import email from './icons/email.svg'
+import linkedin from './icons/linkedin.svg'
+import github from './icons/gith.svg'
 
 export const carouselIcons = {
   icon1,
@@ -41,3 +44,5 @@ export const carouselIcons = {
   icon19,
   icon20
 }
+
+export const socialIcons ={ email, linkedin, github}
