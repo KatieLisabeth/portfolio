@@ -1,9 +1,11 @@
+import { images } from '@/assets'
 import gitHubIcon from '@/assets/icons/gith.svg'
 import linkedInIcon from '@/assets/icons/linkedin.svg'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useContentStore = defineStore('globalStore', () => {
+  const { stack, mail, wellbeing, futureproofed, love, onepunch, skill, vrt, me } = images
   const skills = ref([
     { name: 'HTML', level: 99 },
     { name: 'CSS/SCSS', level: 90 },
@@ -38,7 +40,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Front-end Developer',
       companyName: 'Futureproofed part of Sweco',
-      icon: '@/assets/images/futureproofed.png',
+      icon: futureproofed,
       iconBg: '#fc4c4c',
       date: 'Apr 2023 - Jun 2024',
       points: [
@@ -52,7 +54,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Junior Front-end',
       companyName: 'Wellbeing.ai',
-      icon: '@/assets/images/wellbeing.png',
+      icon: wellbeing,
       iconBg: '#fc4c4c',
       date: 'Nov 2022 - Jan 2023',
       points: ['work.wellbeing.point1', 'work.wellbeing.point2', 'work.wellbeing.point3']
@@ -60,7 +62,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Junior Front-end Developer',
       companyName: 'One Punch Agency',
-      icon: '@/assets/images/onepunch.png',
+      icon: onepunch,
       iconBg: '#fc4c4c',
       date: 'Aug 2022 - Nov 2022',
       points: ['work.onePunch.point1', 'work.onePunch.point2']
@@ -68,7 +70,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Developer Analyst VRT',
       companyName: 'VRT',
-      icon: '@/assets/images/vrt.png',
+      icon: vrt,
       iconBg: '#fc4c4c',
       date: 'Jun 2021 - May 2022',
       points: ['work.vrt.point1', 'work.vrt.point2', 'work.vrt.point3', 'work.vrt.point4']
@@ -76,31 +78,31 @@ export const useContentStore = defineStore('globalStore', () => {
   ])
   const about = ref([
     {
-      link: '@/assets/images/me.png',
+      link: me,
       title: 'about.me.title',
       description: 'about.me.description',
       boxClass: ''
     },
     {
-      link: '@/assets/images/stack.png',
+      link: stack,
       title: 'about.stack.title',
       description: 'about.stack.description',
       boxClass: ''
     },
     {
-      link: '@/assets/images/skills.png',
+      link: skill,
       title: 'about.skills.title',
       description: 'about.skills.description',
       boxClass: 'box-big1'
     },
     {
-      link: '@/assets/images/love.png',
+      link: love,
       title: 'about.passion.title',
       description: 'about.passion.description',
       boxClass: 'box-big3'
     },
     {
-      link: '@/assets/images/mail.png',
+      link: mail,
       title: 'about.contact.title',
       boxClass: 'box-big2',
       description: '',
