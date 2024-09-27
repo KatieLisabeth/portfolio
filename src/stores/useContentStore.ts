@@ -105,5 +105,31 @@ export const useContentStore = defineStore('globalStore', () => {
     }
   ])
 
-  return { skills, work, about, profile, words, languages }
+  const projects = ref([
+    {
+      name: 'project1',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project2',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project3',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project4',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project5',
+      image: '/src/assets/images/image.png'
+    },
+    {
+      name: 'project6',
+      image: ''
+    }
+  ])
+  return { skills, work, about, profile, words, languages, projects }
 })

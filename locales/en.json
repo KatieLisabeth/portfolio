@@ -1,7 +1,7 @@
 {
     "about_me": "About me",
     "work_experience": "Work experience",
-    "projects": "Projects",
+    "project_title": "Projects",
     "resume": "CV",
     "back": "Go back",
     "hello_im": "Hello I'm Katie",
@@ -15,7 +15,7 @@
     "courses_title": "courses",
     "details_title": "details",
     "skills_title": "skills",
-    "language_title":"languages",
+    "language_title": "languages",
     "visit_linkedin": "Visit LinkedIn",
     "visit_github": "Visit GitHub",
     "write_email": "Write email",
@@ -68,6 +68,31 @@
     "languages": {
         "english": "English",
         "dutch": "Dutch"
+    },
+    "projects": {
+        "project1": {
+            "title": "Project One",
+            "text": "This is the description for Project One."
+        },
+        "project2": {
+            "title": "Project Two",
+            "text": "This is the description for Project Two."
+        },
+        "project3": {
+            "title": "Project Three",
+            "text": "This is the description for Project Three."
+        },
+        "project4": {
+            "title": "Project Four",
+            "text": "This is the description for Project Four."
+        },
+        "project5": {
+            "title": "Project Five",
+            "text": "This is the description for Project Five."
+        },
+        "project6": {
+            "title": "Project Six",
+            "text": "This is the description for Project Six."
+        }
     }
-
 }

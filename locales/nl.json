@@ -1,7 +1,7 @@
 {
     "about_me": "Over mij",
     "work_experience": "Werkervaring",
-    "projects": "Projecten",
+    "project_title": "Projecten",
     "resume": "CV",
     "back": "Ga terug",
     "hello_im": "Hallo ik ben Katie",
@@ -68,5 +68,31 @@
     "languages": {
         "english": "Engels",
         "dutch": "Nederlands"
+    },
+    "projects": {
+        "project1": {
+            "title": "Project Eén",
+            "text": "Dit is de beschrijving voor Project Eén."
+        },
+        "project2": {
+            "title": "Project Twee",
+            "text": "Dit is de beschrijving voor Project Twee."
+        },
+        "project3": {
+            "title": "Project Drie",
+            "text": "Dit is de beschrijving voor Project Drie."
+        },
+        "project4": {
+            "title": "Project Vier",
+            "text": "Dit is de beschrijving voor Project Vier."
+        },
+        "project5": {
+            "title": "Project Vijf",
+            "text": "Dit is de beschrijving voor Project Vijf."
+        },
+        "project6": {
+            "title": "Project Zes",
+            "text": "Dit is de beschrijving voor Project Zes."
+        }
     }
 }
