@@ -32,7 +32,7 @@ import MouseScroll from '@/components/animation/MouseScroll.vue'
 import MovingHorizon from '@/components/animation/MovingHorizon.vue'
 import CarouselEl from '@/components/elements/CarouselEl.vue'
 import ScriptEl from '@/components/elements/ScriptEl.vue'
-import { svgIcons } from '@/mixins/carousel_icons'
+import { carouselIcons } from '@/assets'
 import { useThemeStore } from '@/stores/useThemeStore'
 import { computed, ref } from 'vue'
 
@@ -47,7 +47,7 @@ defineProps({
   }
 })
 
-const images = ref<string[]>(Object.values(svgIcons))
+const images = ref<string[]>(Object.values(carouselIcons))
 
 const themeStore = useThemeStore()
 const themeClass = computed(() => {
