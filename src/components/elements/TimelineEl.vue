@@ -23,7 +23,16 @@
       <ul class="points">
         <li v-for="(point, idx) in item.points" :key="`point-${idx}`">
           <h3>{{ getFirstWord($t(point)) }}</h3>
-          {{ getRestOfWords($t(point)) }}
+          {{
+            getRestOfWords(
+              $t(point, {
+                swecoEmail: 'serge.degheldere@swecobelgium.be',
+                wellbeingEmail: 'laurent.van.tornhout@wellbeing.ai',
+                onePunchEmail: 'chatchai@onepunch.agency',
+                vrtEmail: 'ruben.causyn@vrt.be'
+              })
+            )
+          }}
         </li>
       </ul>
     </div>
@@ -279,7 +288,6 @@ watch(
     h3 {
       font-size: 1rem;
     }
-
   }
 
   .timeline-item {

@@ -20,19 +20,23 @@
             "point1": "Contribution: Developed internal tool for cities and business, building sustainability roadmaps using a SaaS software approach.",
             "point2": "Development: Created dynamic cloud-based applications with Vue and TypeScript, utilizing SCSS for styling and Bootstrap.",
             "point3": "Delivery: Released updates through GitHub deployment.",
-            "point4": "Aftercare: Provided iterative support and fine-tuning within a Scrum framework."
+            "point4": "Aftercare: Provided iterative support and fine-tuning within a Scrum framework.",
+            "point5": "Contact: Serge de Gheldere, CEO Futureproofed - {swecoEmail}"
         },
         "wellbeing": {
             "point1": "Contribution: Developed internal tool to streamline business client report management, leveraging a SaaS model for optimal efficiency.",
-            "point2": "Development: Coded and styled dynamic components utilizing React, TypeScript, and SCSS, integrated seamlessly with web services."
+            "point2": "Development: Coded and styled dynamic components utilizing React, TypeScript, and SCSS, integrated seamlessly with web services.",
+            "point3": "Contact: Laurent Tornhout, CEO at Wellbeing.ai - {wellbeingEmail}"
         },
         "onePunch": {
-            "point1": "Development: Dynamic React components with Chakra-UI integration, enhancing web service interactions."
+            "point1": "Development: Dynamic React components with Chakra-UI integration, enhancing web service interactions.",
+            "point2": "Contact: Chatchai Sribunruang, CEO OnePunchAgency - {onePunchEmail}"
         },
         "vrt": {
             "point1": "Development: Developed dynamic components using React, TypeScript, and CSS, integrated with web services. Ensured software reliability through comprehensive unit and end-to-end testing protocols.",
             "point2": "Delivery: Streamlined software deployment process by releasing new versions via Jenkins.",
-            "point3": "Aftercare: Provided interactive support and optimization within a Scrum framework."
+            "point3": "Aftercare: Provided interactive support and optimization within a Scrum framework.",
+            "point4": "Contact: Ruben Causyn, Team Lead VRTNU/Radio - {vrtEmail}"
         }
     },
     "about": {
@@ -54,7 +58,7 @@
         },
         "contact": {
             "title": "Contact me",
-            "description": "katie_lisabeth@yahoo.com"
+            "description": "{email}"
         }
     }
 }

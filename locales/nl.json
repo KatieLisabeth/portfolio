@@ -20,19 +20,23 @@
             "point1": "Bijdrage: Ontwikkelde intern hulpmiddel voor steden en bedrijven, waarbij duurzaamheidsroutes werden opgesteld met behulp van een SaaS-softwarebenadering.",
             "point2": "Ontwikkeling: Creëerde dynamische cloudgebaseerde applicaties met Vue en TypeScript, met SCSS voor styling en Bootstrap.",
             "point3": "Levering: Updates uitgebracht via GitHub-implementatie.",
-            "point4": "Nazorg: Biedt iteratieve ondersteuning en verfijning binnen een Scrum-raamwerk."
+            "point4": "Nazorg: Biedt iteratieve ondersteuning en verfijning binnen een Scrum-raamwerk.",
+            "point5": "Contact: Serge de Gheldere, CEO Futureproofed - {swecoEmail}"
         },
         "wellbeing": {
             "point1": "Bijdrage: Ontwikkelde intern hulpmiddel om het beheer van bedrijfsrapporten te stroomlijnen, met gebruikmaking van een SaaS-model voor optimale efficiëntie.",
-            "point2": "Ontwikkeling: Coded en gestileerde dynamische componenten met behulp van React, TypeScript en SCSS, naadloos geïntegreerd met webservices."
+            "point2": "Ontwikkeling: Coded en gestileerde dynamische componenten met behulp van React, TypeScript en SCSS, naadloos geïntegreerd met webservices.",
+            "point3": "Contact: Laurent Tornhout, CEO at Wellbeing.ai - {wellbeingEmail}"
         },
         "onePunch": {
-            "point1": "Ontwikkeling: Dynamische React-componenten met Chakra-UI-integratie, die de interactie met webservices verbeteren."
+            "point1": "Ontwikkeling: Dynamische React-componenten met Chakra-UI-integratie, die de interactie met webservices verbeteren.",
+            "point2": "Contact: Chatchai Sribunruang, CEO OnePunchAgency - {onePunchEmail}"
         },
         "vrt": {
             "point1": "Ontwikkeling: Ontwikkelde dynamische componenten met behulp van React, TypeScript en CSS, geïntegreerd met webservices. Zorgde voor softwarebetrouwbaarheid door uitgebreide unit- en end-to-end testprotocollen.",
             "point2": "Levering: Gestroomlijnd software-implementatieproces door nieuwe versies uit te brengen via Jenkins.",
-            "point3": "Nazorg: Biedt interactieve ondersteuning en optimalisatie binnen een Scrum-raamwerk."
+            "point3": "Nazorg: Biedt interactieve ondersteuning en optimalisatie binnen een Scrum-raamwerk.",
+            "point4": "Contact: Ruben Causyn, Team Lead VRTNU/Radio - {vrtEmail}"
         }
     },
     "about": {
@@ -54,7 +58,7 @@
         },
         "contact": {
             "title": "Contacteer mij",
-            "description": "katie_lisabeth@yahoo.com"
+            "description": "{email}"
         }
     }
 }

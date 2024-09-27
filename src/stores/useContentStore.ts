@@ -25,7 +25,7 @@ export const useContentStore = defineStore('globalStore', () => {
         'work.sweco.point2',
         'work.sweco.point3',
         'work.sweco.point4',
-        'Contact: Serge de Gheldere, CEO Futureproofed - serge.degheldere@swecobelgium.be'
+        'work.sweco.point5'
       ]
     },
     {
@@ -34,11 +34,7 @@ export const useContentStore = defineStore('globalStore', () => {
       icon: '/src/assets/images/wellbeing.png',
       iconBg: '#fc4c4c',
       date: 'Nov 2022 - Jan 2023',
-      points: [
-        'work.wellbeing.point1',
-        'work.wellbeing.point2',
-        'Contact: Laurent Tornhout, CEO at Wellbeing.ai - laurent.van.tornhout@wellbeing.ai'
-      ]
+      points: ['work.wellbeing.point1', 'work.wellbeing.point2', 'work.wellbeing.point3']
     },
     {
       title: 'Junior Front-end Developer',
@@ -48,7 +44,7 @@ export const useContentStore = defineStore('globalStore', () => {
       date: 'Aug 2022 - Nov 2022',
       points: [
         'work.onePunch.point1',
-        'Contact: Chatchai Sribunruang, CEO OnePunchAgency - chatchai@onepunch.agency'
+        'work.onePunch.point2'
       ]
     },
     {
@@ -61,7 +57,7 @@ export const useContentStore = defineStore('globalStore', () => {
         'work.vrt.point1',
         'work.vrt.point2',
         'work.vrt.point3',
-        'Contact: Ruben Causyn, Team Lead VRTNU/Radio - ruben.causyn@vrt.be'
+        'work.vrt.point4'
       ]
     }
   ])
