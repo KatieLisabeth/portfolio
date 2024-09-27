@@ -38,7 +38,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Front-end Developer',
       companyName: 'Futureproofed part of Sweco',
-      icon: '/src/assets/images/futureproofed.png',
+      icon: '@/assets/images/futureproofed.png',
       iconBg: '#fc4c4c',
       date: 'Apr 2023 - Jun 2024',
       points: [
@@ -52,7 +52,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Junior Front-end',
       companyName: 'Wellbeing.ai',
-      icon: '/src/assets/images/wellbeing.png',
+      icon: '@/assets/images/wellbeing.png',
       iconBg: '#fc4c4c',
       date: 'Nov 2022 - Jan 2023',
       points: ['work.wellbeing.point1', 'work.wellbeing.point2', 'work.wellbeing.point3']
@@ -60,7 +60,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Junior Front-end Developer',
       companyName: 'One Punch Agency',
-      icon: '/src/assets/images/onepunch.png',
+      icon: '@/assets/images/onepunch.png',
       iconBg: '#fc4c4c',
       date: 'Aug 2022 - Nov 2022',
       points: ['work.onePunch.point1', 'work.onePunch.point2']
@@ -68,7 +68,7 @@ export const useContentStore = defineStore('globalStore', () => {
     {
       title: 'Developer Analyst VRT',
       companyName: 'VRT',
-      icon: '/src/assets/images/vrt.png',
+      icon: '@/assets/images/vrt.png',
       iconBg: '#fc4c4c',
       date: 'Jun 2021 - May 2022',
       points: ['work.vrt.point1', 'work.vrt.point2', 'work.vrt.point3', 'work.vrt.point4']
@@ -76,31 +76,31 @@ export const useContentStore = defineStore('globalStore', () => {
   ])
   const about = ref([
     {
-      link: '/src/assets/images/me.png',
+      link: '@/assets/images/me.png',
       title: 'about.me.title',
       description: 'about.me.description',
       boxClass: ''
     },
     {
-      link: '/src/assets/images/stack.png',
+      link: '@/assets/images/stack.png',
       title: 'about.stack.title',
       description: 'about.stack.description',
       boxClass: ''
     },
     {
-      link: '/src/assets/images/skills.png',
+      link: '@/assets/images/skills.png',
       title: 'about.skills.title',
       description: 'about.skills.description',
       boxClass: 'box-big1'
     },
     {
-      link: '/src/assets/images/love.png',
+      link: '@/assets/images/love.png',
       title: 'about.passion.title',
       description: 'about.passion.description',
       boxClass: 'box-big3'
     },
     {
-      link: '/src/assets/images/mail.png',
+      link: '@/assets/images/mail.png',
       title: 'about.contact.title',
       boxClass: 'box-big2',
       description: '',
@@ -111,23 +111,23 @@ export const useContentStore = defineStore('globalStore', () => {
   const projects = ref([
     {
       name: 'project1',
-      image: '/src/assets/images/image.png'
+      image: '@/assets/images/image.png'
     },
     {
       name: 'project2',
-      image: '/src/assets/images/image.png'
+      image: '@/assets/images/image.png'
     },
     {
       name: 'project3',
-      image: '/src/assets/images/image.png'
+      image: '@/assets/images/image.png'
     },
     {
       name: 'project4',
-      image: '/src/assets/images/image.png'
+      image: '@/assets/images/image.png'
     },
     {
       name: 'project5',
-      image: '/src/assets/images/image.png'
+      image: '@/assets/images/image.png'
     },
     {
       name: 'project6',
