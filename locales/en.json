@@ -15,6 +15,10 @@
     "courses_title": "courses",
     "details_title": "details",
     "skills_title": "skills",
+    "language_title":"languages",
+    "visit_linkedin": "Visit LinkedIn",
+    "visit_github": "Visit GitHub",
+    "write_email": "Write email",
     "work": {
         "sweco": {
             "point1": "Contribution: Developed internal tool for cities and business, building sustainability roadmaps using a SaaS software approach.",
@@ -60,5 +64,10 @@
             "title": "Contact me",
             "description": "{email}"
         }
+    },
+    "languages": {
+        "english": "English",
+        "dutch": "Dutch"
     }
+
 }

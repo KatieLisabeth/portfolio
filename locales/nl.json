@@ -15,6 +15,10 @@
     "courses_title": "cursussen",
     "details_title": "details",
     "skills_title": "vaardigheden",
+    "language_title": "talen",
+    "visit_linkedin": "Bezoek LinkedIn",
+    "visit_github": "Bezoek GitHub",
+    "write_email": "Schrijf een e-mail",
     "work": {
         "sweco": {
             "point1": "Bijdrage: Ontwikkelde intern hulpmiddel voor steden en bedrijven, waarbij duurzaamheidsroutes werden opgesteld met behulp van een SaaS-softwarebenadering.",
@@ -60,5 +64,9 @@
             "title": "Contacteer mij",
             "description": "{email}"
         }
+    },
+    "languages": {
+        "english": "Engels",
+        "dutch": "Nederlands"
     }
 }
