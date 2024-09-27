@@ -1,6 +1,5 @@
 {
   "extends": "./tsconfig.app.json",
-  "include": ["src/**/*.spec.ts", "src/**/*.test.ts", "src/**/*.spec.tsx"],
   "compilerOptions": {
     "types": ["vitest/globals", "node"], // Add Vitest types for tests
     "moduleResolution": "Node"
