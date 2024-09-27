@@ -3,5 +3,14 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/portfolio/'
+  base: '/portfolio/',
+  build: {
+    outDir: 'dist',
+    sourcemap: true
+  },
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
 })
