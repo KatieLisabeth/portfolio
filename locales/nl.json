@@ -61,8 +61,7 @@
             "description": "Ik hou ervan om problemen op te lossen en dingen te bouwen met code. Programmeren is niet alleen mijn beroep, het is mijn passie. Ik geniet ervan om nieuwe technologieën te verkennen en mijn vaardigheden te verbeteren."
         },
         "contact": {
-            "title": "Contacteer mij",
-            "description": "{email}"
+            "title": "Contacteer mij"
         }
     },
     "languages": {
@@ -94,5 +93,6 @@
             "title": "Project Zes",
             "text": "Dit is de beschrijving voor Project Zes."
         }
-    }
+    },
+    "built_with": "Gebouwd met"
 }

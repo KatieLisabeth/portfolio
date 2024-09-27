@@ -61,8 +61,7 @@
             "description": "I love solving problems and building things through code. Programming isn't just my profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills."
         },
         "contact": {
-            "title": "Contact me",
-            "description": "{email}"
+            "title": "Contact me"
         }
     },
     "languages": {
@@ -94,5 +93,6 @@
             "title": "Project Six",
             "text": "This is the description for Project Six."
         }
-    }
+    },
+    "built_with": "Built with"
 }
