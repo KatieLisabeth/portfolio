@@ -1,9 +1,9 @@
+import { useThemeStore } from '@/stores/useThemeStore'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/base.css'
 import router from './router'
-import { useThemeStore } from '@/stores/useThemeStore'
 import { i18n } from './utils/i18n'
 
 const app = createApp(App)
