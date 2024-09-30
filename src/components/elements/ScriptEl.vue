@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { useContentStore } from '@/stores/useContentStore'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const contentStore = useContentStore()
@@ -20,10 +20,12 @@ let typingInterval: number | undefined
 let deletingInterval: number | undefined
 
 // Function to "type"
-const typeLetters = (word: string) => {
+const typeLetters = async (word: string) => {
   let currentLetterIndex = 0
   displayedText.value = ''
   if (typingInterval) clearInterval(typingInterval)
+
+  await nextTick()
   typingInterval = window.setInterval(() => {
     if (currentLetterIndex < word.length) {
       displayedText.value += word[currentLetterIndex]
@@ -36,9 +38,12 @@ const typeLetters = (word: string) => {
 }
 
 // Letter wiping effect
-const deleteLetters = (word: string) => {
+const deleteLetters = async (word: string) => {
   let currentLetterIndex = word.length
   if (deletingInterval) clearInterval(deletingInterval)
+
+  await nextTick() // Ensure any DOM updates are flushed before starting the interval
+
   deletingInterval = window.setInterval(() => {
     if (currentLetterIndex > 0) {
       displayedText.value = word.slice(0, currentLetterIndex - 1)
@@ -70,6 +75,7 @@ onBeforeUnmount(() => {
   justify-content: flex-start;
   align-items: center;
   padding: 0;
+  height: 100px;
   width: 100%;
   white-space: normal;
   overflow: hidden;
