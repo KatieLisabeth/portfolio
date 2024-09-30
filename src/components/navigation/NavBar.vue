@@ -60,7 +60,7 @@ import pdfUrl from '@/assets/pdfs/EN.pdf'
 import LanguageSwitch from '@/controllers/LanguageSwitch.vue'
 import ThemeSwitch from '@/controllers/ThemeSwitch.vue'
 import { useThemeStore } from '@/stores/useThemeStore'
-import { computed, reactive, ref } from 'vue'
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 defineProps({
@@ -81,11 +81,40 @@ const links = reactive([
   { text: 'work_experience', href: '#work' }
 ])
 
+// rest of your imports and existing code...
+
 const isMobileNavVisible = ref(false)
 
 const toggleMobileNav = () => {
   isMobileNavVisible.value = !isMobileNavVisible.value
 }
+
+const closeMobileNav = () => {
+  isMobileNavVisible.value = false
+}
+
+const handleClickOutside = (event: MouseEvent) => {
+  const navElement = document.querySelector('.nav.active')
+  const hamburgerElement = document.querySelector('.hamburger')
+  if (
+    isMobileNavVisible.value &&
+    navElement &&
+    hamburgerElement &&
+    !navElement.contains(event.target as Node) &&
+    !hamburgerElement.contains(event.target as Node)
+  ) {
+    closeMobileNav()
+  }
+}
+
+// Add event listener on mount and remove it on unmount
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <style scoped>
@@ -198,9 +227,12 @@ nav a:hover {
   }
 
   .nav.active {
+    top: 0;
     display: flex;
-    background: #121515db;
+    background: var(--primary-color);
     padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.458);
+    z-index: 1;
   }
 
   .hamburger {
@@ -212,7 +244,9 @@ nav a:hover {
   }
 
   .theme-switch {
-    display: none;
+    position: absolute;
+    top: 0.7rem;
+    right: 0.3rem;
   }
 }
 </style>
