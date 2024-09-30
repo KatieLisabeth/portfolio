@@ -56,7 +56,7 @@ const themeClass = computed(() => {
 <style scoped>
 .container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,19 +126,22 @@ const themeClass = computed(() => {
 
 @media (max-width: 768px) {
   .content {
+    display: block;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .photo img {
     width: 100%;
     max-width: 200px;
+    margin: 0 auto;
   }
 
   .text {
     width: 100%;
+    height: auto;
     padding: 0 1rem;
-    margin-top: 0.3rem;
     text-align: center;
     &.light-photo {
       padding: 10rem 3rem;
@@ -146,7 +149,7 @@ const themeClass = computed(() => {
   }
   .mouse {
     width: 100%;
-    height: 150px;
+    height: 250px;
   }
   .carousel {
     margin: 0;
