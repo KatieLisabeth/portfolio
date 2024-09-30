@@ -2,13 +2,7 @@
   <div
     v-for="(item, index) in items"
     :key="index"
-    :class="[
-      'timeline-item',
-      index % 2 === 0 ? 'left' : 'right',
-      {
-        'slide-in': isWorkSessionVisible && isVisible[index]
-      }
-    ]"
+    :class="getItemClasses(index)"
     ref="timelineRefs"
   >
     <div class="timeline-icon" :style="{ background: item.iconBg }">
@@ -40,8 +34,14 @@
 </template>
 
 <script setup lang="ts">
+import { useIsMobile } from '@/utils/viewport'
 import { onBeforeUnmount, onMounted, ref, watch, type PropType } from 'vue'
 
+const isMobile = useIsMobile(768)
+const timelineRefs = ref<(HTMLElement | null)[]>([])
+const isVisible = ref<boolean[]>([])
+
+let observer: IntersectionObserver
 interface Item {
   title: string
   companyName: string
@@ -62,10 +62,15 @@ const props = defineProps({
     required: true
   }
 })
-
-const timelineRefs = ref<(HTMLElement | null)[]>([])
-const isVisible = ref<boolean[]>([])
-let observer: IntersectionObserver
+const getItemClasses = (index: number) => {
+  return [
+    'timeline-item',
+    index % 2 === 0 ? 'left' : 'right',
+    {
+      'slide-in': !isMobile.value && props.isWorkSessionVisible && isVisible.value[index]
+    }
+  ]
+}
 
 onMounted(() => {
   observer = new IntersectionObserver(

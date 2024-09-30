@@ -63,7 +63,7 @@ body {
 }
 
 .light-mouse {
-  --primary-color: #9263e4;
+  --primary-color: #0ee3f4;
   --secondary-color: #fffccc;
 }
 
@@ -73,11 +73,15 @@ body {
 }
 
 .light-about {
-  --primary-color: #127fd3f3;
-  --title-text: #fffccc;
-  --description-text: #c4e872;
+  --primary-color: linear-gradient(
+    183deg,
+    rgba(8, 126, 217, 0.61) 0%,
+    rgba(157, 507, 150, 0.41) 100%
+  );
+  --title-text: #160ee3;
+  --description-text: #160ee3;
   --card-text: #ffc0a9;
-  --hover-color: #127fd3dc;
+  --hover-color: linear-gradient(183deg, rgba(8, 126, 217, 0.8) 0%, rgba(157, 507, 150, 0.8) 100%);
 }
 
 .dark-about {
@@ -86,7 +90,7 @@ body {
   --description-text: #f9cbba;
   --card-text: #ffc0a9;
   --hover-color: rgba(25, 25, 25, 0.95);
-  --font: 'Courier New', Courier, monospace;
+  --font: monospace;
 }
 
 .dark {
