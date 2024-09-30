@@ -14,7 +14,7 @@ interface Themes {
 const themes: Themes = {
   light: {
     primary: '#fff',
-    text: '#094d82'
+    text: '#0314ac'
   },
   dark: {
     primary: 'linear-gradient(90deg, #01041F 0%, #082B33 100%)',
