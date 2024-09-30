@@ -10,7 +10,7 @@
         />
       </figure>
 
-      <div class="text">
+      <div :class="[themeClass, 'text']">
         <h1>{{ $t('hello_im') }}</h1>
         <ScriptEl />
       </div>
@@ -140,6 +140,9 @@ const themeClass = computed(() => {
     padding: 0 1rem;
     margin-top: 0.3rem;
     text-align: center;
+    &.light-photo {
+      padding: 10rem 3rem;
+    }
   }
   .mouse {
     width: 100%;
