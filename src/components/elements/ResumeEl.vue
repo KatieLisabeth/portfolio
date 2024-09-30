@@ -144,14 +144,14 @@ const getRestOfWords = (text: string): string => {
   color: #514848;
   font-size: 14px;
   margin-bottom: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .title {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 5px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 .skills-container {
   width: 100%;

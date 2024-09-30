@@ -43,7 +43,7 @@ const themeClass = computed(() => {
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: 700;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .timeline-container {

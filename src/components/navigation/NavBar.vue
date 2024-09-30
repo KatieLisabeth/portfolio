@@ -192,7 +192,7 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: color 0.1s ease;
-  font-family: monospace;
+  font-family:  monospace;
   color: var(--primary-text);
 }
 

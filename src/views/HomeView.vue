@@ -106,7 +106,7 @@ const themeClass = computed(() => {
   h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:  monospace;
   }
 }
 
