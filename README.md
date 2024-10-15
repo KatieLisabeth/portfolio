@@ -28,4 +28,4 @@ To run the website on your local machine:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-portfolio-repo.git
+   git clone https://github.com/katiekisabeth/portfolio.git
